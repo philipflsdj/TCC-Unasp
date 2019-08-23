@@ -1,3 +1,24 @@
-﻿@{
-    Layout = "~/Views/Shared/_testelayout.cshtml";
+﻿@*{
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+*@
+
+
+@{
+    var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["Controller"].ToString();
+    string layout = "";
+
+    if (controller == "Home")
+    {
+        layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    }
+    else if (controller == "Inicial")
+    {
+        layout = "~/Views/Shared/_InicialLayout.cshtml";
+    }
+        else if (controller == "Login")
+    {
+        layout = "~/Views/Shared/_LoginLayout.cshtml";
+    }
+    Layout = layout;
 }
