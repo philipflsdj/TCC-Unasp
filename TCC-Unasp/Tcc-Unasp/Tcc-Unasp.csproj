@@ -45,10 +45,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -126,9 +132,88 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Atendimento.cs">
+      <DependentUpon>SoftHomeDesenv.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Cliente.cs">
+      <DependentUpon>SoftHomeDesenv.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IdTipoImovel.cs">
+      <DependentUpon>SoftHomeDesenv.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Imovel.cs">
+      <DependentUpon>SoftHomeDesenv.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ImovelTerceiro.cs">
+      <DependentUpon>SoftHomeDesenv.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Lote.cs">
+      <DependentUpon>SoftHomeDesenv.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Loteamento.cs">
+      <DependentUpon>SoftHomeDesenv.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Negociacao.cs">
+      <DependentUpon>SoftHomeDesenv.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Pagamento.cs">
+      <DependentUpon>SoftHomeDesenv.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Reuniao.cs">
+      <DependentUpon>SoftHomeDesenv.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SoftHomeDesenv.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SoftHomeDesenv.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SoftHomeDesenv.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SoftHomeDesenv.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SoftHomeDesenv.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SoftHomeDesenv.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>SoftHomeDesenv.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblBairros.cs">
+      <DependentUpon>SoftHomeDesenv.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblCidades.cs">
+      <DependentUpon>SoftHomeDesenv.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblLogradouros.cs">
+      <DependentUpon>SoftHomeDesenv.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblStatus.cs">
+      <DependentUpon>SoftHomeDesenv.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblUF.cs">
+      <DependentUpon>SoftHomeDesenv.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TipoImovel.cs">
+      <DependentUpon>SoftHomeDesenv.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TipoNegociacao.cs">
+      <DependentUpon>SoftHomeDesenv.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TipoPagamento.cs">
+      <DependentUpon>SoftHomeDesenv.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Usuario.cs">
+      <DependentUpon>SoftHomeDesenv.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\SoftHomeTeste.mdf" />
+    <Content Include="App_Data\SoftHomeTeste_log.ldf">
+      <DependentUpon>SoftHomeTeste.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -4959,6 +5044,16 @@
     <Content Include="images\user-img-background.jpg" />
     <Content Include="images\user.jpg" />
     <Content Include="images\user.png" />
+    <Content Include="Models\SoftHomeDesenv.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SoftHomeDesenv.edmx</DependentUpon>
+      <LastGenOutput>SoftHomeDesenv.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\SoftHomeDesenv.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SoftHomeDesenv.edmx</DependentUpon>
+      <LastGenOutput>SoftHomeDesenv.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\vendor\bootstrap\js\bootstrap.bundle.js.map" />
@@ -5221,6 +5316,13 @@
     <Content Include="Content\plugins\tinymce\skins\lightgray\fonts\tinymce.eot" />
     <Content Include="Content\plugins\tinymce\skins\lightgray\fonts\tinymce.ttf" />
     <Content Include="Content\plugins\tinymce\skins\lightgray\fonts\tinymce.woff" />
+    <EntityDeploy Include="Models\SoftHomeDesenv.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SoftHomeDesenv.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\SoftHomeDesenv.edmx.diagram">
+      <DependentUpon>SoftHomeDesenv.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -5295,10 +5397,7 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -5311,6 +5410,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

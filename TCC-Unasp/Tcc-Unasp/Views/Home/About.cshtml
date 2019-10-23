@@ -4,4 +4,92 @@
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+<form class="form-horizontal">
+    <fieldset>
+
+        <!-- Form Name -->
+        <legend>Cadastro do Cliente</legend>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">Nome Completo</label>
+            <div class="col-md-8">
+                <input id="textinput" name="textinput" type="text" placeholder="Digite seu nome" class="form-control input-md" required="">
+
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="datanascimento">Data de Nascimento</label>
+            <div class="col-md-4">
+                <input id="datanascimento" name="datanascimento" type="text" placeholder="__/__/___" class="form-control input-md" required="">
+
+            </div>
+        </div>
+
+        <!-- Multiple Radios -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="estadoCivil">Estado Civil</label>
+            <div class="col-md-4">
+                <div class="radio">
+                    <label for="estadoCivil-0">
+                        <input type="radio" name="estadoCivil" id="estadoCivil-0" value="Solteiro(a)" checked="checked">
+                        Solteiro(a)
+                    </label>
+                </div>
+                <div class="radio">
+                    <label for="estadoCivil-1">
+                        <input type="radio" name="estadoCivil" id="estadoCivil-1" value="Casado(a)">
+                        Casado(a)
+                    </label>
+                </div>
+                <div class="radio">
+                    <label for="estadoCivil-2">
+                        <input type="radio" name="estadoCivil" id="estadoCivil-2" value="Divorciado(a)">
+                        Divorciado(a)
+                    </label>
+                </div>
+                <div class="radio">
+                    <label for="estadoCivil-3">
+                        <input type="radio" name="estadoCivil" id="estadoCivil-3" value="Viuvo(a)">
+                        Viuvo(a)
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Select Basic -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="tiposdecasamento">Tipos de Casamento</label>
+            <div class="col-md-4">
+                <select id="tiposdecasamento" name="tiposdecasamento" class="form-control">
+                    <option value="Comunhão parcial">Comunhão parcial</option>
+                    <option value="Separação de bens">Separação de bens</option>
+                    <option value="Comunhão universal">Comunhão universal</option>
+                    <option value="Participação final nos aquestos">Participação final nos aquestos</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="rgcliente">RG</label>
+            <div class="col-md-4">
+                <input id="rgcliente" name="rgcliente" type="text" placeholder="Digite seu RG" class="form-control input-md" required="">
+
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="cpfCliente">CPF</label>
+            <div class="col-md-4">
+                <input id="cpfCliente" name="cpfCliente" type="text" placeholder="XXX-XXX-XXX-XX" class="form-control input-md" required="">
+
+            </div>
+        </div>
+
+    </fieldset>
+</form>
+
