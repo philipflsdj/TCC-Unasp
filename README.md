@@ -14,3 +14,5 @@ Curso: análise e desenvolvimento de Sistemas
 3- Inserindo Fontawonsome - (Inserindo ícones ) - 20/08/2019
 
 4- Criando a página de Login e Página Inicial - (Criando controller longin e inicial e criando a view index ) - 22/08/2019
+
+5-Criação das Models com Banco de dados- 22/10/2019
