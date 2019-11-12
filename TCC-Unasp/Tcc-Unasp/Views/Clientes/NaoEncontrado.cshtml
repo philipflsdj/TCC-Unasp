@@ -1,0 +1,14 @@
+﻿@model Tcc_Unasp.Models.Cliente
+
+@{
+    ViewBag.Title = "NotFound";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="alert alert-danger" role="alert">
+    Erro cliente não encontrado
+    <a class="btn btn-danger" href=" @Url.Action("Index", "Clientes")">
+        <i class="fas fa-undo"></i>
+    </a>
+</div>
+

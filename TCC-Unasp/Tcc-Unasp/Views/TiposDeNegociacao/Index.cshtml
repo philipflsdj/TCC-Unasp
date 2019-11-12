@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Tcc_Unasp.Models.TipoNegociacao>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h4 class="m-0 font-weight-bold text-primary">Lista de Tipos de Negociação</h4>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Descrição</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Descrição</th>
+                        <th>Ações</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Descricao)
+                        </td>
+                        <td>
+                            <a class="btn btn-success" href="@Url.Action("Edit","TiposDeNegociacao", new { id = item.IdTipoNegociacao })"><i class="fas fa-pencil-alt" style="color:white"></i></a> |
+                            <a class="btn btn-primary" href="@Url.Action("Details","TiposDeNegociacao", new { id = item.IdTipoNegociacao })"><i class="fas fa-list-alt" style="color:white"></i></a> |
+                            <a class="btn btn-danger" href="@Url.Action("Delete","TiposDeNegociacao", new { id = item.IdTipoNegociacao })"><i class="fas fa-trash-alt" style="color:white"></i></a>
+                        </td>
+                        
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

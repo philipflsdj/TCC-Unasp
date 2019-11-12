@@ -1,0 +1,107 @@
+﻿@model Tcc_Unasp.Models.ImovelTerceiro
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ImovelTerceiro</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AreaTotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AreaTotal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AreaContru)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AreaContru)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Domitotios)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Domitotios)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Banheiros)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Banheiros)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Garagem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Garagem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotComodos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotComodos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comentarios)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comentarios)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente.NomeCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.NomeCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Imovel.StatusImovel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imovel.StatusImovel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblStatus.Tabela)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblStatus.Tabela)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoImovelTerceiro.IdTipoImovel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoImovelTerceiro.IdTipoImovel)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdImovelTerceiro }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

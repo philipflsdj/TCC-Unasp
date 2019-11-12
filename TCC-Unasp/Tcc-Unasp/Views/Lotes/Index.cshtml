@@ -1,0 +1,112 @@
+﻿@model IEnumerable<Tcc_Unasp.Models.Lote>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NLote)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nquadra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mfrente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mfundo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MLAtDir)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MLatEsc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Confrontante)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AreaQuadrada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Matricula)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IPTU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rua)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cliente.NomeCliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Loteamento.NomeLoteamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblStatus.Tabela)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NLote)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nquadra)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mfrente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mfundo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MLAtDir)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MLatEsc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Confrontante)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AreaQuadrada)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Matricula)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IPTU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rua)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cliente.NomeCliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Loteamento.NomeLoteamento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblStatus.Tabela)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdLote }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdLote }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdLote })
+        </td>
+    </tr>
+}
+
+</table>

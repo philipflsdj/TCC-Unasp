@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Tcc_Unasp.Models.Imovel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+@*<h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+
+<div class="col-lg-12">
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4 class="m-0 font-weight-bold text-primary">Lista de Imóveis</h4>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered " id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Endereço</th>
+                            <th>Status</th>
+                            <th>Descrição</th>
+                            <th>Data de Cadastro</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Endereço</th>
+                            <th>Status</th>
+                            <th>Descrição</th>
+                            <th>Data de Cadastro</th>
+                            <th>Ações</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.tblLogradouros.LOG_TIPO_LOGRADOURO)
+                                    @Html.DisplayFor(modelItem => item.tblLogradouros.DescricaoNaoAbreviada),
+                                    @Html.DisplayFor(modelItem => item.NImovel)
+
+                                </td>
+
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.StatusImovel)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TipoImovel1.Descricao)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DataCadastro)
+                                </td>
+
+                                <td>
+
+                                    <a class="btn btn-primary" href="@Url.Action("Edit","Clientes", new { id = item.IdImovel })"><i class="fas fa-pencil-alt" style="color:white"></i></a> |
+                                    <a class="btn btn-warning" href="@Url.Action("Details","Clientes", new { id = item.IdImovel})"><i class="fas fa-list-alt" style="color:white"></i></a> |
+                                    <a class="btn btn-danger" href="@Url.Action("Delete","Clientes", new { id = item.IdImovel })"><i class="fas fa-trash-alt" style="color:white"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

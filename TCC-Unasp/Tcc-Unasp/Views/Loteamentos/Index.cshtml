@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Tcc_Unasp.Models.Loteamento>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeLoteamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nMatricula)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nProceRegu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nIncra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Imovel.StatusImovel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblStatus.Tabela)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeLoteamento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nMatricula)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nProceRegu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nIncra)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Imovel.StatusImovel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblStatus.Tabela)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdLoteamento }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdLoteamento }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdLoteamento })
+        </td>
+    </tr>
+}
+
+</table>

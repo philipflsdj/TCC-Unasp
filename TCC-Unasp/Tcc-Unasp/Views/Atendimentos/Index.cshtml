@@ -1,0 +1,97 @@
+﻿@model IEnumerable<Tcc_Unasp.Models.Atendimento>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="col-lg-12">
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4 class="m-0 font-weight-bold text-primary">Lista de Atendimentos</h4>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered " id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Nome do Atendimento</th>
+                            <th>Data do Atendimento</th>
+                            <th>Nome do Cliente</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Nome do Atendimento</th>
+                            <th>Data do Atendimento</th>
+                            <th>Nome do Cliente</th>
+                            <th>Ações</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NomeAtendimento)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DataAtendimento)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Cliente.NomeCliente)
+                                </td>
+
+
+                                <td>
+                                    <a class="btn btn-success" href="@Url.Action("Edit","Atendimentos", new {id = item.IdAtendimento })"><i class="fas fa-pencil-alt" style="color:white"></i></a> |
+                                    <a class="btn btn-primary" href="@Url.Action("Details","Atendimentos", new { id = item.IdAtendimento })"><i class="fas fa-list-alt" style="color:white"></i></a> |
+                                    <a class="btn btn-danger" href="@Url.Action("Delete","Atendimentos", new { id = item.IdAtendimento })"><i class="fas fa-trash-alt" style="color:white"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeAtendimento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comentario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataAtendimento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente.NomeCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reuniao.Comentario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario.emailUsuario)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.IdAtendimento }) |
+                @Html.ActionLink("Details", "Details", new { id = item.IdAtendimento }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.IdAtendimento })
+            </td>
+        </tr>
+    }
+
+</table>*@

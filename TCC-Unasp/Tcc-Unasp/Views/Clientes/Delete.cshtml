@@ -1,0 +1,89 @@
+﻿@model Tcc_Unasp.Models.Cliente
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Cliente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NacionalidadeCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NacionalidadeCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstadoCivil)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstadoCivil)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfissaoCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProfissaoCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RGCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RGCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CPFCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CPFCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dataNascimento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dataNascimento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblLogradouros.UF)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblLogradouros.UF)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

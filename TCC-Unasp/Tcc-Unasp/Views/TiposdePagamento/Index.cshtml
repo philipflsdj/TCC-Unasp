@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Tcc_Unasp.Models.TipoPagamento>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="col-lg-12">
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4 class="m-0 font-weight-bold text-primary">Lista de Tipos de Pagamento</h4>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered " id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Descricao</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Descricao</th>
+                            <th>Ações</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Descricao)
+                            </td>
+
+
+                            <td>
+                                <a class="btn btn-success" href="@Url.Action("Edit","TiposdePagamento", new {id = item.IdTipoPagamento })"><i class="fas fa-pencil-alt" style="color:white"></i></a> |
+                                <a class="btn btn-primary" href="@Url.Action("Details","TiposdePagamento", new { id = item.IdTipoPagamento })"><i class="fas fa-list-alt" style="color:white"></i></a> |
+                                <a class="btn btn-danger" href="@Url.Action("Delete","TiposdePagamento", new { id = item.IdTipoPagamento })"><i class="fas fa-trash-alt" style="color:white"></i></a>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.IdTipoPagamento }) |
+                @Html.ActionLink("Details", "Details", new { id = item.IdTipoPagamento }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.IdTipoPagamento })
+            </td>
+        </tr>
+    }
+
+</table>*@

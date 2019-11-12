@@ -1,0 +1,205 @@
+﻿@model Tcc_Unasp.Models.Cliente
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<script type="text/javascript">
+    $("#btnCreate").click(function () {
+        var cliente = {};
+        cliente = $('#CreateCliente').serialize();
+        $.post("/Clientes/Create", { cliente }, function (data) {
+            if (data != null) {
+                alert("User Created");
+                location.reload();
+            }
+            else {
+                alert("Error");
+            }
+        });
+        $("#CreateCliente").hide();
+        $("#messageCadastro").show();
+    })
+    $("#btnCreate").click(function () {
+        var objcep = {};                   //objUser is variable through which i am passing the details filled by the user to the controller
+        objcep.cep = $("#cep").val();            //fetching value from the textbox
+        $.post("/Clientes/Create", { objcep: objcep }, function (data)        //data is a variable which contains the data returned from the action method
+        {
+            if (data != null) {
+                alert("User Created");
+                location.reload();       //for refreshing the page after saving
+            }
+            else {
+                alert("Error");
+            }
+        });
+    })
+
+    $(document).ready(function () {
+
+        function limpa_formulário_cep() {
+            // Limpa valores do formulário de cep.
+            $("#rua").val("");
+            $("#bairro").val("");
+            $("#cidade").val("");
+            $("#uf").val("");
+            $("#ibge").val("");
+        }
+
+        //Quando o campo cep perde o foco.
+        $("#cep").blur(function () {
+
+            //Nova variável "cep" somente com dígitos.
+            var cep = $(this).val().replace(/\D/g, '');
+
+            //Verifica se campo cep possui valor informado.
+            if (cep != "") {
+
+                //Expressão regular para validar o CEP.
+                var validacep = /^[0-9]{8}$/;
+
+                //Valida o formato do CEP.
+                if (validacep.test(cep)) {
+
+                    //Preenche os campos com "..." enquanto consulta webservice.
+                    $("#rua").val("...");
+                    $("#bairro").val("...");
+                    $("#cidade").val("...");
+                    $("#uf").val("...");
+                    $("#ibge").val("...");
+
+                    //Consulta o webservice viacep.com.br/
+                    $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
+
+                        if (!("erro" in dados)) {
+                            //Atualiza os campos com os valores da consulta.
+                            $("#rua").val(dados.logradouro);
+                            $("#bairro").val(dados.bairro);
+                            $("#cidade").val(dados.localidade);
+                            $("#uf").val(dados.uf);
+                            $("#ibge").val(dados.ibge);
+                        } //end if.
+                        else {
+                            //CEP pesquisado não foi encontrado.
+                            limpa_formulário_cep();
+                            alert("CEP não encontrado.");
+                        }
+                    });
+                } //end if.
+                else {
+                    //cep é inválido.
+                    limpa_formulário_cep();
+                    alert("Formato de CEP inválido.");
+                }
+            } //end if.
+            else {
+                //cep sem valor, limpa formulário.
+                limpa_formulário_cep();
+            }
+        });
+    });
+
+</script>
+@if (ViewBag.Collor == null)
+{ 
+    <div class="form-horizontal">
+        @using (Html.BeginForm("Create", "Clientes", FormMethod.Post, new { id = "CreateCliente", enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+
+
+            <div class="form-group">
+                <label>Nome:</label>
+                <input type="text" class="form-control" name="NomeCliente" id="NomeCliente" placeholder="Digite o nome completo do cliente EX: SÉRGIO MENDES DE OLIVEIRA">
+                @Html.ValidationMessageFor(model => model.NomeCliente, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Nacionalidade:</label>
+                <input type="text" class="form-control" name="NacionalidadeCliente" id="NacionalidadeCliente" placeholder="Digite a nacionalidade no cliente EX: BRASILEIRA">
+                @Html.ValidationMessageFor(model => model.NacionalidadeCliente, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Estado Civil:</label>
+                <select class="form-control text-center" name="EstadoCivil" id="EstadoCivil">
+                    <!--SOLTEIRO, CASADO, DIVORCIADO, UNIÃO ESTÁVEL, VIVÚVO, SEPARADO JUDICIALMENTE-->
+                    <option value="Default">-----Selecione uma Opção-----</option>
+                    <option value="SOLTEIRO">Solteiro</option>
+                    <option value="CASADO">Casado</option>
+                    <option value="DIVORCIADO">Divorciado</option>
+                    <option value="UNIÃO ESTÁVEL">União Estável</option>
+                    <option value="VIVÚVO">Viúvo</option>
+                    <option value="SEPARADO JUDICIALMENTE">Separado Judicialmente</option>
+                </select>
+                @Html.ValidationMessageFor(model => model.EstadoCivil, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Profissão:</label>
+                <input type="text" class="form-control" name="ProfissaoCliente" id="ProfissaoCliente" placeholder="Digite a profissão do cliente EX: CORRETOR">
+                @Html.ValidationMessageFor(model => model.ProfissaoCliente, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>RG:</label>
+                <input type="text" class="form-control" name="RGCliente" id="RGCliente" placeholder="Digite o RG do cliente">
+                @Html.ValidationMessageFor(model => model.RGCliente, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>CPF:</label>
+                <input type="text" class="form-control" name="CPFCliente" id="cpf" placeholder="Digite o CPF do cliente">
+                @Html.ValidationMessageFor(model => model.CPFCliente, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Data de Nascimento:</label>
+                <input type="text" class="form-control" name="dataNascimento" id="dataNascimento" placeholder="Digite o CPF do cliente">
+                @Html.ValidationMessageFor(model => model.dataNascimento, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Cep:</label>
+                <input name="cep" type="text" id="cep" value="" class="form-control" placeholder="Digite o CEP do cliente">
+            </div>
+            <div class="form-group">
+                <label>Rua:</label>
+                <input name="rua" type="text" id="rua" class="form-control" placeholder="">
+            </div>
+            <div class="form-group">
+                <label>Bairro:</label>
+                <input name="bairro" type="text" id="bairro" class="form-control" placeholder="">
+            </div>
+            <div class="form-group">
+                <label>Cidade:</label>
+                <input name="cidade" type="text" id="cidade" class="form-control" placeholder="">
+            </div>
+            <div class="form-group">
+                <label>Estado:</label>
+                <input name="uf" type="text" id="uf" class="form-control" placeholder="">
+            </div>
+            <div class="form-group">
+                <label>Numero da casa:</label>
+                <input type="text" name="nCasa" id="nCasa" value="" class="form-control" placeholder="Digite o N° do cliente">
+                @Html.ValidationMessageFor(model => model.nCasa, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" id="btnCreate" class="btn btn-default" />
+                </div>
+            </div>
+        }
+    </div>
+}
+
+@if(ViewBag.Collor != null)
+{
+    <div>
+        <div class="col-lg-6 mb-4" id="messageCadastro" >
+            <div class="card bg-@ViewBag.Collor text-white shadow">
+                <div class="card-body">
+                    @ViewBag.Message
+                </div>
+            </div>
+        </div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+
+}

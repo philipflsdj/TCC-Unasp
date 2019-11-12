@@ -1,0 +1,131 @@
+﻿@model Tcc_Unasp.Models.Lote
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Lote</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NLote)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NLote)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nquadra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nquadra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mfrente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mfrente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mfundo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mfundo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MLAtDir)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MLAtDir)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MLatEsc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MLatEsc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Confrontante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Confrontante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AreaQuadrada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AreaQuadrada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Matricula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Matricula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IPTU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IPTU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rua)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rua)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente.NomeCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.NomeCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Loteamento.NomeLoteamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Loteamento.NomeLoteamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblStatus.Tabela)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblStatus.Tabela)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdLote }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

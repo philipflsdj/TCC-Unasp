@@ -4,60 +4,59 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9c7dab8258f94ca3af028d560b14120c" Name="Diagram1" ZoomLevel="76">
-        <EntityTypeShape EntityType="SoftHomeDesenvModel.Atendimento" Width="1.5" PointX="3.75" PointY="38.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SoftHomeDesenvModel.Cliente" Width="1.5" PointX="1.5" PointY="36.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SoftHomeDesenvModel.IdTipoImovel" Width="1.5" PointX="3.75" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SoftHomeDesenvModel.Imovel" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SoftHomeDesenvModel.ImovelTerceiro" Width="1.5" PointX="3" PointY="12.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SoftHomeDesenvModel.Lote" Width="1.5" PointX="6" PointY="11.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SoftHomeDesenvModel.Loteamento" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SoftHomeDesenvModel.Negociacao" Width="1.5" PointX="3" PointY="17.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SoftHomeDesenvModel.Pagamento" Width="1.5" PointX="5.25" PointY="17.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SoftHomeDesenvModel.Reuniao" Width="1.5" PointX="6" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SoftHomeDesenvModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SoftHomeDesenvModel.tblBairros" Width="1.5" PointX="1.5" PointY="22.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SoftHomeDesenvModel.tblCidades" Width="1.5" PointX="1.5" PointY="26.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SoftHomeDesenvModel.tblLogradouros" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SoftHomeDesenvModel.tblStatus" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SoftHomeDesenvModel.tblUF" Width="1.5" PointX="1.5" PointY="31" IsExpanded="true" />
-        <EntityTypeShape EntityType="SoftHomeDesenvModel.TipoImovel" Width="1.5" PointX="1.5" PointY="33.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SoftHomeDesenvModel.TipoNegociacao" Width="1.5" PointX="0.75" PointY="17.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SoftHomeDesenvModel.TipoPagamento" Width="1.5" PointX="0.75" PointY="19.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SoftHomeDesenvModel.Usuario" Width="1.5" PointX="1.5" PointY="41.25" IsExpanded="true" />
+      <Diagram DiagramId="b3f59b388eb54674b25240e7b860e346" Name="Diagram1" ZoomLevel="59">
+        <EntityTypeShape EntityType="SoftHomeDesenvModel.Atendimento" Width="1.5" PointX="12" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoftHomeDesenvModel.Cliente" Width="1.5" PointX="9.75" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoftHomeDesenvModel.Contatos" Width="1.5" PointX="12" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoftHomeDesenvModel.Imovel" Width="1.5" PointX="9.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoftHomeDesenvModel.ImovelTerceiro" Width="1.5" PointX="15" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoftHomeDesenvModel.Lote" Width="1.5" PointX="12" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoftHomeDesenvModel.Loteamento" Width="1.5" PointX="15" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoftHomeDesenvModel.Negociacao" Width="1.5" PointX="17.25" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoftHomeDesenvModel.Pagamento" Width="1.5" PointX="15" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoftHomeDesenvModel.Reuniao" Width="1.5" PointX="15" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoftHomeDesenvModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoftHomeDesenvModel.tblBairros" Width="1.5" PointX="5.25" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoftHomeDesenvModel.tblCidades" Width="1.5" PointX="3" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoftHomeDesenvModel.tblLogradouros" Width="1.5" PointX="7.5" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoftHomeDesenvModel.tblStatus" Width="1.5" PointX="12.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoftHomeDesenvModel.tblUF" Width="1.5" PointX="0.75" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoftHomeDesenvModel.TipoImovel" Width="1.5" PointX="7.5" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoftHomeDesenvModel.TipoImovelTerceiro" Width="1.5" PointX="12.75" PointY="26" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoftHomeDesenvModel.TipoNegociacao" Width="1.5" PointX="15" PointY="25.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoftHomeDesenvModel.TipoPagamento" Width="1.5" PointX="12.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoftHomeDesenvModel.Usuario" Width="1.5" PointX="12.75" PointY="22.5" IsExpanded="true" />
         <AssociationConnector Association="SoftHomeDesenvModel.FK__ATENDIMEN__IdCli__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="SoftHomeDesenvModel.FK__Atendimen__IdReu__2A164134" ManuallyRouted="false" />
         <AssociationConnector Association="SoftHomeDesenvModel.FK__ATENDIMEN__IdUsu__5629CD9C" ManuallyRouted="false" />
-        <AssociationConnector Association="SoftHomeDesenvModel.FK__Reuniao__IdAtend__04E4BC85" ManuallyRouted="false" />
-        <AssociationConnector Association="SoftHomeDesenvModel.FK__Reuniao__IdAtend__05D8E0BE" ManuallyRouted="false" />
         <AssociationConnector Association="SoftHomeDesenvModel.FK__Cliente__IdEnder__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="SoftHomeDesenvModel.FK__Contatos__IdClie__2DE6D218" ManuallyRouted="false" />
+        <AssociationConnector Association="SoftHomeDesenvModel.FK__ImovelTer__IdCli__29221CFB" ManuallyRouted="false" />
         <AssociationConnector Association="SoftHomeDesenvModel.FK__Lote__IdCliente__7A672E12" ManuallyRouted="false" />
         <AssociationConnector Association="SoftHomeDesenvModel.FK__Pagamento__IdCli__2180FB33" ManuallyRouted="false" />
         <AssociationConnector Association="SoftHomeDesenvModel.FK__Reuniao__IdClien__07C12930" ManuallyRouted="false" />
         <AssociationConnector Association="SoftHomeDesenvModel.FK__Reuniao__IdClien__08B54D69" ManuallyRouted="false" />
         <AssociationConnector Association="SoftHomeDesenvModel.FK__Imovel__IdEndere__6383C8BA" ManuallyRouted="false" />
         <AssociationConnector Association="SoftHomeDesenvModel.FK__Imovel__TipoImov__6477ECF3" ManuallyRouted="false" />
-        <AssociationConnector Association="SoftHomeDesenvModel.FK__ImovelTer__Idimo__00200768" ManuallyRouted="false" />
+        <AssociationConnector Association="SoftHomeDesenvModel.FK__ImovelTer__IdImo__282DF8C2" ManuallyRouted="false" />
         <AssociationConnector Association="SoftHomeDesenvModel.FK__Loteament__IdImo__75A278F5" ManuallyRouted="false" />
+        <AssociationConnector Association="SoftHomeDesenvModel.FK__Reuniao__IdImove__2645B050" ManuallyRouted="false" />
         <AssociationConnector Association="SoftHomeDesenvModel.FK__ImovelTer__IdSta__02084FDA" ManuallyRouted="false" />
-        <AssociationConnector Association="SoftHomeDesenvModel.FK__ImovelTer__IdTip__01142BA1" ManuallyRouted="false" />
+        <AssociationConnector Association="SoftHomeDesenvModel.FK__ImovelTer__IdTip__2739D489" ManuallyRouted="false" />
         <AssociationConnector Association="SoftHomeDesenvModel.FK__Lote__IdLoteamen__797309D9" ManuallyRouted="false" />
         <AssociationConnector Association="SoftHomeDesenvModel.FK__Lote__IdStatus__7B5B524B" ManuallyRouted="false" />
         <AssociationConnector Association="SoftHomeDesenvModel.FK__Loteament__IdSta__76969D2E" ManuallyRouted="false" />
         <AssociationConnector Association="SoftHomeDesenvModel.FK__Negociaca__IdReu__1AD3FDA4" ManuallyRouted="false" />
         <AssociationConnector Association="SoftHomeDesenvModel.FK__Negociaca__IdSta__1DB06A4F" ManuallyRouted="false" />
         <AssociationConnector Association="SoftHomeDesenvModel.FK__Negociaca__IdTip__1BC821DD" ManuallyRouted="false" />
-        <AssociationConnector Association="SoftHomeDesenvModel.FK__Negociaca__IdTip__1CBC4616" ManuallyRouted="false" />
-        <AssociationConnector Association="SoftHomeDesenvModel.FK__Pagamento__IdNeg__208CD6FA" ManuallyRouted="false" />
+        <AssociationConnector Association="SoftHomeDesenvModel.FK__Pagamento__IdNeg__2B0A656D" ManuallyRouted="false" />
         <AssociationConnector Association="SoftHomeDesenvModel.FK__Pagamento__IdSta__236943A5" ManuallyRouted="false" />
         <AssociationConnector Association="SoftHomeDesenvModel.FK__Pagamento__IdTip__22751F6C" ManuallyRouted="false" />
         <AssociationConnector Association="SoftHomeDesenvModel.FK__Reuniao__IdStatu__09A971A2" ManuallyRouted="false" />
         <AssociationConnector Association="SoftHomeDesenvModel.FK__Reuniao__IdUsuar__06CD04F7" ManuallyRouted="false" />
         <AssociationConnector Association="SoftHomeDesenvModel.FK__tblBairro__Codig__4BAC3F29" ManuallyRouted="false" />
-        <AssociationConnector Association="SoftHomeDesenvModel.FK__tblBairros__UF__4AB81AF0" ManuallyRouted="false" />
         <AssociationConnector Association="SoftHomeDesenvModel.FK__tblLograd__Codig__4F7CD00D" ManuallyRouted="false" />
         <AssociationConnector Association="SoftHomeDesenvModel.FK__tblCidades__UF__48CFD27E" ManuallyRouted="false" />
-        <AssociationConnector Association="SoftHomeDesenvModel.FK__tblLograd__Codig__4E88ABD4" ManuallyRouted="false" />
-        <AssociationConnector Association="SoftHomeDesenvModel.FK__tblLogradour__UF__4D94879B" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -1,0 +1,65 @@
+﻿@model Tcc_Unasp.Models.Imovel
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Imovel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NImovel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NImovel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StatusImovel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StatusImovel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataCadastro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataCadastro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblLogradouros.UF)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblLogradouros.UF)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoImovel1.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoImovel1.Descricao)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

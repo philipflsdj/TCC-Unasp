@@ -1,0 +1,67 @@
+﻿@model Tcc_Unasp.Models.Cliente
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="col-lg-12">
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4 class="m-0 font-weight-bold text-primary">Detalhes do Clientes</h4>
+        </div>
+        <div class="card-body">
+            <ul class="list-inline">
+                <li class="list-inline-item">
+                    <h5><strong>Nome: </strong></h5>
+                </li>
+                <li class="list-inline-item">
+                    <p class="text-capitalize h5">@Html.DisplayFor(model => model.NomeCliente)<p />
+                </li>
+                <li class="list-inline-item">
+                    <h5><strong>Nacionalidade:</strong> </h5>
+                </li>
+                <li class="list-inline-item"> <h5>@Html.DisplayFor(model => model.NacionalidadeCliente)</h5></li>
+
+                <li class="list-inline-item">
+                    <h5><strong>Estado Civil:</strong> </h5>
+                </li>
+                <li class="list-inline-item"> <h5>@Html.DisplayFor(model => model.EstadoCivil)</h5></li>
+
+                <br />
+                <li class="list-inline-item">
+                    <h5><strong>Profissão:</strong> </h5>
+                </li>
+                <li class="list-inline-item"> <h5>@Html.DisplayFor(model => model.ProfissaoCliente)</h5></li>
+                <li class="list-inline-item">
+                    <h5><strong>RG:</strong> </h5>
+                </li>
+                <li class="list-inline-item"> <h5>@Html.DisplayFor(model => model.RGCliente)</h5></li>
+                <li class="list-inline-item">
+                    <h5><strong>CPF:</strong> </h5>
+                </li>
+
+                <li class="list-inline-item"> <h5>@Html.DisplayFor(model => model.CPFCliente)</h5></li>
+                <br />
+                <li class="list-inline-item">
+                    <h5><strong>Data de Nascimento:</strong> </h5>
+                </li>
+                <li class="list-inline-item"> <h5>@Html.DisplayFor(model => model.dataNascimento)</h5></li>
+                <li class="list-inline-item">
+                    <h5><strong>Endereço:</strong> </h5>
+                </li>
+                <li class="list-inline-item"> 
+                    <h5>@Html.DisplayFor(model => model.tblLogradouros.LOG_TIPO_LOGRADOURO) @Html.DisplayFor(model => model.tblLogradouros.DescricaoNaoAbreviada),@Html.DisplayFor(model => model.nCasa) </h5>
+                </li>
+
+            </ul>
+
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.IdCliente }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+    </div>
+</div>
+
+            

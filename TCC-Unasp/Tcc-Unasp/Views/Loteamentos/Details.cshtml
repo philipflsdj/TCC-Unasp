@@ -1,0 +1,67 @@
+﻿@model Tcc_Unasp.Models.Loteamento
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Loteamento</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeLoteamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeLoteamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nMatricula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nMatricula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nProceRegu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nProceRegu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nIncra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nIncra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Imovel.StatusImovel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imovel.StatusImovel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblStatus.Tabela)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblStatus.Tabela)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdLoteamento }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

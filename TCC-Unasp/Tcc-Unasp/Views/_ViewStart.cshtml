@@ -8,17 +8,85 @@
     var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["Controller"].ToString();
     string layout = "";
 
+
+
     if (controller == "Home")
     {
         layout = "~/Views/Shared/_DashboardLayout.cshtml";
     }
+    else if (controller == "Clientes")
+    {
+        layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    }
+    else if (controller == "Atendimentos")
+    {
+        layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    }
+    else if (controller == "Contatos")
+    {
+        layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    }
+    else if (controller == "Imoveis")
+    {
+        layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    }
+    else if (controller == "ImoveisTerceiros")
+    {
+        layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    }
+    else if (controller == "Loteamentos")
+    {
+        layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    }
+    else if (controller == "Lotes")
+    {
+        layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    }
+    else if (controller == "Negociacoes")
+    {
+        layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    }
+    else if (controller == "Pagamentos")
+    {
+        layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    }
+    else if (controller == "Reunioes")
+    {
+        layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    }
+    else if (controller == "Status")
+    {
+        layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    }
+    else if (controller == "TipodeImoveis")
+    {
+        layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    }
+    else if (controller == "TipoImovelTerceiroes")
+    {
+        layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    }
+    else if (controller == "TiposDeNegociacao")
+    {
+        layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    }
+    else if (controller == "TiposdePagamento")
+    {
+        layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    }
+    else if (controller == "Usuarios")
+    {
+        layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    }
+
     else if (controller == "Inicial")
     {
         layout = "~/Views/Shared/_InicialLayout.cshtml";
     }
-        else if (controller == "Login")
+    else if (controller == "Login")
     {
         layout = "~/Views/Shared/_LoginLayout.cshtml";
     }
     Layout = layout;
+
 }

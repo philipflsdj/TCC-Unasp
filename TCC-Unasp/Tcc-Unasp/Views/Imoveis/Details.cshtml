@@ -1,0 +1,59 @@
+﻿@model Tcc_Unasp.Models.Imovel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Imovel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NImovel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NImovel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StatusImovel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StatusImovel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataCadastro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataCadastro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblLogradouros.UF)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblLogradouros.UF)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoImovel1.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoImovel1.Descricao)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdImovel }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

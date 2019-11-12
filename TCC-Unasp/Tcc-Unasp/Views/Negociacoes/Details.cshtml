@@ -1,0 +1,67 @@
+﻿@model Tcc_Unasp.Models.Negociacao
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Negociacao</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.QteDeParc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QteDeParc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValorTot)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValorTot)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comentario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comentario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reuniao.Comentario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reuniao.Comentario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblStatus.Tabela)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblStatus.Tabela)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoNegociacao.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoNegociacao.Descricao)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdNegociacao }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

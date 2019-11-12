@@ -4,17 +4,18 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SoftHomeDesenvModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SoftHomeDesenvModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Atendimento">
           <Key>
             <PropertyRef Name="IdAtendimento" />
           </Key>
           <Property Name="IdAtendimento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdCliente" Type="int" Nullable="false" />
-          <Property Name="IdUsuario" Type="int" Nullable="false" />
+          <Property Name="IdAtendente" Type="int" Nullable="false" />
           <Property Name="NomeAtendimento" Type="varchar" MaxLength="100" />
           <Property Name="Comentario" Type="varchar" MaxLength="255" />
           <Property Name="DataAtendimento" Type="datetime" />
+          <Property Name="IdReuniao" Type="int" />
         </EntityType>
         <EntityType Name="Cliente">
           <Key>
@@ -29,13 +30,19 @@
           <Property Name="CPFCliente" Type="varchar" MaxLength="18" Nullable="false" />
           <Property Name="dataNascimento" Type="datetime" Nullable="false" />
           <Property Name="IdEndereco" Type="int" Nullable="false" />
+          <Property Name="nCasa" Type="int" />
         </EntityType>
-        <EntityType Name="IdTipoImovel">
+        <EntityType Name="Contatos">
           <Key>
-            <PropertyRef Name="IdTipoImovel" />
+            <PropertyRef Name="IdContato" />
           </Key>
-          <Property Name="IdTipoImovel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Descricao" Type="int" Nullable="false" />
+          <Property Name="IdContato" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCliente" Type="int" Nullable="false" />
+          <Property Name="emailCliente" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="TelResidCliente" Type="varchar" MaxLength="13" />
+          <Property Name="CelCliente" Type="varchar" MaxLength="14" />
+          <Property Name="FacebookCliente" Type="varchar" MaxLength="20" />
+          <Property Name="InstagramCliente" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="Imovel">
           <Key>
@@ -53,16 +60,16 @@
             <PropertyRef Name="IdImovelTerceiro" />
           </Key>
           <Property Name="IdImovelTerceiro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Idimovel" Type="int" Nullable="false" />
-          <Property Name="IdTipoImovel" Type="int" Nullable="false" />
           <Property Name="AreaTotal" Type="varchar" MaxLength="3" />
           <Property Name="AreaContru" Type="varchar" MaxLength="10" />
           <Property Name="Domitotios" Type="varchar" MaxLength="10" />
           <Property Name="Banheiros" Type="varchar" MaxLength="10" />
           <Property Name="Garagem" Type="varchar" MaxLength="10" />
           <Property Name="TotComodos" Type="varchar" MaxLength="300" />
-          <Property Name="Comentarios" Type="varchar" MaxLength="300" />
+          <Property Name="Comentarios" Type="varchar" MaxLength="3000" />
           <Property Name="IdStatus" Type="int" />
+          <Property Name="IdTipoImovelTerceiro" Type="int" />
+          <Property Name="IdImovel" Type="int" />
           <Property Name="IdCliente" Type="int" />
         </EntityType>
         <EntityType Name="Lote">
@@ -99,12 +106,11 @@
         </EntityType>
         <EntityType Name="Negociacao">
           <Key>
-            <PropertyRef Name="IdTipoPagamento" />
+            <PropertyRef Name="IdNegociacao" />
           </Key>
           <Property Name="IdNegociacao" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdReuniao" Type="int" />
           <Property Name="IdTipoNegociacao" Type="int" />
-          <Property Name="IdTipoPagamento" Type="int" Nullable="false" />
           <Property Name="IdStatus" Type="int" />
           <Property Name="QteDeParc" Type="int" />
           <Property Name="ValorTot" Type="float" />
@@ -112,28 +118,29 @@
         </EntityType>
         <EntityType Name="Pagamento">
           <Key>
-            <PropertyRef Name="IdTipoPagamento" />
+            <PropertyRef Name="IdPagamento" />
           </Key>
           <Property Name="IdPagamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdNegociacao" Type="int" />
           <Property Name="IdCliente" Type="int" />
           <Property Name="IdStatus" Type="int" />
           <Property Name="nParcela" Type="int" />
           <Property Name="Valor" Type="float" />
           <Property Name="IdTipoPagamento" Type="int" Nullable="false" />
+          <Property Name="IdNegociacao" Type="int" />
         </EntityType>
         <EntityType Name="Reuniao">
           <Key>
             <PropertyRef Name="IdReuniao" />
           </Key>
           <Property Name="IdReuniao" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdAtendimento" Type="int" Nullable="false" />
-          <Property Name="IdAtendimento2" Type="int" Nullable="false" />
-          <Property Name="IdUsuario" Type="int" Nullable="false" />
-          <Property Name="IdCliente" Type="int" Nullable="false" />
-          <Property Name="IdCliente2" Type="int" Nullable="false" />
-          <Property Name="Comentario" Type="varchar" MaxLength="300" />
+          <Property Name="idCorretor" Type="int" Nullable="false" />
+          <Property Name="IdVendedor" Type="int" Nullable="false" />
+          <Property Name="idComprador" Type="int" Nullable="false" />
+          <Property Name="Comentario" Type="varchar" MaxLength="3000" />
           <Property Name="IdStatus" Type="int" />
+          <Property Name="IdImovel" Type="int" />
+          <Property Name="NomeReuniao" Type="varchar" MaxLength="100" />
+          <Property Name="DataReuniao" Type="datetime" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -207,6 +214,13 @@
           <Property Name="IdTipoImovel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Descricao" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="TipoImovelTerceiro">
+          <Key>
+            <PropertyRef Name="IdTipoImovel" />
+          </Key>
+          <Property Name="IdTipoImovel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descricao" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="TipoNegociacao">
           <Key>
             <PropertyRef Name="IdTipoNegociacao" />
@@ -244,6 +258,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Atendimen__IdReu__2A164134">
+          <End Role="Reuniao" Type="Self.Reuniao" Multiplicity="0..1" />
+          <End Role="Atendimento" Type="Self.Atendimento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reuniao">
+              <PropertyRef Name="IdReuniao" />
+            </Principal>
+            <Dependent Role="Atendimento">
+              <PropertyRef Name="IdReuniao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__ATENDIMEN__IdUsu__5629CD9C">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
           <End Role="Atendimento" Type="Self.Atendimento" Multiplicity="*" />
@@ -252,7 +278,7 @@
               <PropertyRef Name="IdUsuario" />
             </Principal>
             <Dependent Role="Atendimento">
-              <PropertyRef Name="IdUsuario" />
+              <PropertyRef Name="IdAtendente" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -265,6 +291,18 @@
             </Principal>
             <Dependent Role="Cliente">
               <PropertyRef Name="IdEndereco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Contatos__IdClie__2DE6D218">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="Contatos" Type="Self.Contatos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="Contatos">
+              <PropertyRef Name="IdCliente" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -292,15 +330,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ImovelTer__Idimo__00200768">
-          <End Role="Imovel" Type="Self.Imovel" Multiplicity="1" />
+        <Association Name="FK__ImovelTer__IdCli__29221CFB">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+          <End Role="ImovelTerceiro" Type="Self.ImovelTerceiro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="ImovelTerceiro">
+              <PropertyRef Name="IdCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ImovelTer__IdImo__282DF8C2">
+          <End Role="Imovel" Type="Self.Imovel" Multiplicity="0..1" />
           <End Role="ImovelTerceiro" Type="Self.ImovelTerceiro" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Imovel">
               <PropertyRef Name="IdImovel" />
             </Principal>
             <Dependent Role="ImovelTerceiro">
-              <PropertyRef Name="Idimovel" />
+              <PropertyRef Name="IdImovel" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -316,15 +366,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ImovelTer__IdTip__01142BA1">
-          <End Role="TipoImovel" Type="Self.TipoImovel" Multiplicity="1" />
+        <Association Name="FK__ImovelTer__IdTip__2739D489">
+          <End Role="TipoImovelTerceiro" Type="Self.TipoImovelTerceiro" Multiplicity="0..1" />
           <End Role="ImovelTerceiro" Type="Self.ImovelTerceiro" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TipoImovel">
+            <Principal Role="TipoImovelTerceiro">
               <PropertyRef Name="IdTipoImovel" />
             </Principal>
             <Dependent Role="ImovelTerceiro">
-              <PropertyRef Name="IdTipoImovel" />
+              <PropertyRef Name="IdTipoImovelTerceiro" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -424,18 +474,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Negociaca__IdTip__1CBC4616">
-          <End Role="TipoPagamento" Type="Self.TipoPagamento" Multiplicity="1" />
-          <End Role="Negociacao" Type="Self.Negociacao" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="TipoPagamento">
-              <PropertyRef Name="IdTipoPagamento" />
-            </Principal>
-            <Dependent Role="Negociacao">
-              <PropertyRef Name="IdTipoPagamento" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Pagamento__IdCli__2180FB33">
           <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
           <End Role="Pagamento" Type="Self.Pagamento" Multiplicity="*" />
@@ -448,12 +486,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Pagamento__IdNeg__208CD6FA">
+        <Association Name="FK__Pagamento__IdNeg__2B0A656D">
           <End Role="Negociacao" Type="Self.Negociacao" Multiplicity="0..1" />
           <End Role="Pagamento" Type="Self.Pagamento" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Negociacao">
-              <PropertyRef Name="IdTipoPagamento" />
+              <PropertyRef Name="IdNegociacao" />
             </Principal>
             <Dependent Role="Pagamento">
               <PropertyRef Name="IdNegociacao" />
@@ -474,37 +512,13 @@
         </Association>
         <Association Name="FK__Pagamento__IdTip__22751F6C">
           <End Role="TipoPagamento" Type="Self.TipoPagamento" Multiplicity="1" />
-          <End Role="Pagamento" Type="Self.Pagamento" Multiplicity="0..1" />
+          <End Role="Pagamento" Type="Self.Pagamento" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TipoPagamento">
               <PropertyRef Name="IdTipoPagamento" />
             </Principal>
             <Dependent Role="Pagamento">
               <PropertyRef Name="IdTipoPagamento" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Reuniao__IdAtend__04E4BC85">
-          <End Role="Atendimento" Type="Self.Atendimento" Multiplicity="1" />
-          <End Role="Reuniao" Type="Self.Reuniao" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Atendimento">
-              <PropertyRef Name="IdAtendimento" />
-            </Principal>
-            <Dependent Role="Reuniao">
-              <PropertyRef Name="IdAtendimento" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Reuniao__IdAtend__05D8E0BE">
-          <End Role="Atendimento" Type="Self.Atendimento" Multiplicity="1" />
-          <End Role="Reuniao" Type="Self.Reuniao" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Atendimento">
-              <PropertyRef Name="IdAtendimento" />
-            </Principal>
-            <Dependent Role="Reuniao">
-              <PropertyRef Name="IdAtendimento2" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -516,7 +530,7 @@
               <PropertyRef Name="IdCliente" />
             </Principal>
             <Dependent Role="Reuniao">
-              <PropertyRef Name="IdCliente" />
+              <PropertyRef Name="IdVendedor" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -528,7 +542,19 @@
               <PropertyRef Name="IdCliente" />
             </Principal>
             <Dependent Role="Reuniao">
-              <PropertyRef Name="IdCliente2" />
+              <PropertyRef Name="idComprador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reuniao__IdImove__2645B050">
+          <End Role="Imovel" Type="Self.Imovel" Multiplicity="0..1" />
+          <End Role="Reuniao" Type="Self.Reuniao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Imovel">
+              <PropertyRef Name="IdImovel" />
+            </Principal>
+            <Dependent Role="Reuniao">
+              <PropertyRef Name="IdImovel" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -552,7 +578,7 @@
               <PropertyRef Name="IdUsuario" />
             </Principal>
             <Dependent Role="Reuniao">
-              <PropertyRef Name="IdUsuario" />
+              <PropertyRef Name="idCorretor" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -568,18 +594,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblBairros__UF__4AB81AF0">
-          <End Role="tblUF" Type="Self.tblUF" Multiplicity="1" />
-          <End Role="tblBairros" Type="Self.tblBairros" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblUF">
-              <PropertyRef Name="Codigo" />
-            </Principal>
-            <Dependent Role="tblBairros">
-              <PropertyRef Name="UF" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__tblCidades__UF__48CFD27E">
           <End Role="tblUF" Type="Self.tblUF" Multiplicity="1" />
           <End Role="tblCidades" Type="Self.tblCidades" Multiplicity="*" />
@@ -589,18 +603,6 @@
             </Principal>
             <Dependent Role="tblCidades">
               <PropertyRef Name="UF" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__tblLograd__Codig__4E88ABD4">
-          <End Role="tblCidades" Type="Self.tblCidades" Multiplicity="1" />
-          <End Role="tblLogradouros" Type="Self.tblLogradouros" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblCidades">
-              <PropertyRef Name="Codigo" />
-            </Principal>
-            <Dependent Role="tblLogradouros">
-              <PropertyRef Name="CodigoCidade" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -616,22 +618,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblLogradour__UF__4D94879B">
-          <End Role="tblUF" Type="Self.tblUF" Multiplicity="1" />
-          <End Role="tblLogradouros" Type="Self.tblLogradouros" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblUF">
-              <PropertyRef Name="Codigo" />
-            </Principal>
-            <Dependent Role="tblLogradouros">
-              <PropertyRef Name="UF" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="SoftHomeDesenvModelStoreContainer">
           <EntitySet Name="Atendimento" EntityType="Self.Atendimento" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="IdTipoImovel" EntityType="Self.IdTipoImovel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contatos" EntityType="Self.Contatos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Imovel" EntityType="Self.Imovel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ImovelTerceiro" EntityType="Self.ImovelTerceiro" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Lote" EntityType="Self.Lote" Schema="dbo" store:Type="Tables" />
@@ -646,11 +636,16 @@
           <EntitySet Name="tblStatus" EntityType="Self.tblStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblUF" EntityType="Self.tblUF" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipoImovel" EntityType="Self.TipoImovel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoImovelTerceiro" EntityType="Self.TipoImovelTerceiro" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipoNegociacao" EntityType="Self.TipoNegociacao" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipoPagamento" EntityType="Self.TipoPagamento" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__ATENDIMEN__IdCli__5535A963" Association="Self.FK__ATENDIMEN__IdCli__5535A963">
             <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Atendimento" EntitySet="Atendimento" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Atendimen__IdReu__2A164134" Association="Self.FK__Atendimen__IdReu__2A164134">
+            <End Role="Reuniao" EntitySet="Reuniao" />
             <End Role="Atendimento" EntitySet="Atendimento" />
           </AssociationSet>
           <AssociationSet Name="FK__ATENDIMEN__IdUsu__5629CD9C" Association="Self.FK__ATENDIMEN__IdUsu__5629CD9C">
@@ -661,6 +656,10 @@
             <End Role="tblLogradouros" EntitySet="tblLogradouros" />
             <End Role="Cliente" EntitySet="Cliente" />
           </AssociationSet>
+          <AssociationSet Name="FK__Contatos__IdClie__2DE6D218" Association="Self.FK__Contatos__IdClie__2DE6D218">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Contatos" EntitySet="Contatos" />
+          </AssociationSet>
           <AssociationSet Name="FK__Imovel__IdEndere__6383C8BA" Association="Self.FK__Imovel__IdEndere__6383C8BA">
             <End Role="tblLogradouros" EntitySet="tblLogradouros" />
             <End Role="Imovel" EntitySet="Imovel" />
@@ -669,7 +668,11 @@
             <End Role="TipoImovel" EntitySet="TipoImovel" />
             <End Role="Imovel" EntitySet="Imovel" />
           </AssociationSet>
-          <AssociationSet Name="FK__ImovelTer__Idimo__00200768" Association="Self.FK__ImovelTer__Idimo__00200768">
+          <AssociationSet Name="FK__ImovelTer__IdCli__29221CFB" Association="Self.FK__ImovelTer__IdCli__29221CFB">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="ImovelTerceiro" EntitySet="ImovelTerceiro" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ImovelTer__IdImo__282DF8C2" Association="Self.FK__ImovelTer__IdImo__282DF8C2">
             <End Role="Imovel" EntitySet="Imovel" />
             <End Role="ImovelTerceiro" EntitySet="ImovelTerceiro" />
           </AssociationSet>
@@ -677,8 +680,8 @@
             <End Role="tblStatus" EntitySet="tblStatus" />
             <End Role="ImovelTerceiro" EntitySet="ImovelTerceiro" />
           </AssociationSet>
-          <AssociationSet Name="FK__ImovelTer__IdTip__01142BA1" Association="Self.FK__ImovelTer__IdTip__01142BA1">
-            <End Role="TipoImovel" EntitySet="TipoImovel" />
+          <AssociationSet Name="FK__ImovelTer__IdTip__2739D489" Association="Self.FK__ImovelTer__IdTip__2739D489">
+            <End Role="TipoImovelTerceiro" EntitySet="TipoImovelTerceiro" />
             <End Role="ImovelTerceiro" EntitySet="ImovelTerceiro" />
           </AssociationSet>
           <AssociationSet Name="FK__Lote__IdCliente__7A672E12" Association="Self.FK__Lote__IdCliente__7A672E12">
@@ -713,15 +716,11 @@
             <End Role="TipoNegociacao" EntitySet="TipoNegociacao" />
             <End Role="Negociacao" EntitySet="Negociacao" />
           </AssociationSet>
-          <AssociationSet Name="FK__Negociaca__IdTip__1CBC4616" Association="Self.FK__Negociaca__IdTip__1CBC4616">
-            <End Role="TipoPagamento" EntitySet="TipoPagamento" />
-            <End Role="Negociacao" EntitySet="Negociacao" />
-          </AssociationSet>
           <AssociationSet Name="FK__Pagamento__IdCli__2180FB33" Association="Self.FK__Pagamento__IdCli__2180FB33">
             <End Role="Cliente" EntitySet="Cliente" />
             <End Role="Pagamento" EntitySet="Pagamento" />
           </AssociationSet>
-          <AssociationSet Name="FK__Pagamento__IdNeg__208CD6FA" Association="Self.FK__Pagamento__IdNeg__208CD6FA">
+          <AssociationSet Name="FK__Pagamento__IdNeg__2B0A656D" Association="Self.FK__Pagamento__IdNeg__2B0A656D">
             <End Role="Negociacao" EntitySet="Negociacao" />
             <End Role="Pagamento" EntitySet="Pagamento" />
           </AssociationSet>
@@ -733,20 +732,16 @@
             <End Role="TipoPagamento" EntitySet="TipoPagamento" />
             <End Role="Pagamento" EntitySet="Pagamento" />
           </AssociationSet>
-          <AssociationSet Name="FK__Reuniao__IdAtend__04E4BC85" Association="Self.FK__Reuniao__IdAtend__04E4BC85">
-            <End Role="Atendimento" EntitySet="Atendimento" />
-            <End Role="Reuniao" EntitySet="Reuniao" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Reuniao__IdAtend__05D8E0BE" Association="Self.FK__Reuniao__IdAtend__05D8E0BE">
-            <End Role="Atendimento" EntitySet="Atendimento" />
-            <End Role="Reuniao" EntitySet="Reuniao" />
-          </AssociationSet>
           <AssociationSet Name="FK__Reuniao__IdClien__07C12930" Association="Self.FK__Reuniao__IdClien__07C12930">
             <End Role="Cliente" EntitySet="Cliente" />
             <End Role="Reuniao" EntitySet="Reuniao" />
           </AssociationSet>
           <AssociationSet Name="FK__Reuniao__IdClien__08B54D69" Association="Self.FK__Reuniao__IdClien__08B54D69">
             <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Reuniao" EntitySet="Reuniao" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reuniao__IdImove__2645B050" Association="Self.FK__Reuniao__IdImove__2645B050">
+            <End Role="Imovel" EntitySet="Imovel" />
             <End Role="Reuniao" EntitySet="Reuniao" />
           </AssociationSet>
           <AssociationSet Name="FK__Reuniao__IdStatu__09A971A2" Association="Self.FK__Reuniao__IdStatu__09A971A2">
@@ -761,29 +756,16 @@
             <End Role="tblCidades" EntitySet="tblCidades" />
             <End Role="tblBairros" EntitySet="tblBairros" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblBairros__UF__4AB81AF0" Association="Self.FK__tblBairros__UF__4AB81AF0">
-            <End Role="tblUF" EntitySet="tblUF" />
-            <End Role="tblBairros" EntitySet="tblBairros" />
-          </AssociationSet>
           <AssociationSet Name="FK__tblCidades__UF__48CFD27E" Association="Self.FK__tblCidades__UF__48CFD27E">
             <End Role="tblUF" EntitySet="tblUF" />
             <End Role="tblCidades" EntitySet="tblCidades" />
-          </AssociationSet>
-          <AssociationSet Name="FK__tblLograd__Codig__4E88ABD4" Association="Self.FK__tblLograd__Codig__4E88ABD4">
-            <End Role="tblCidades" EntitySet="tblCidades" />
-            <End Role="tblLogradouros" EntitySet="tblLogradouros" />
           </AssociationSet>
           <AssociationSet Name="FK__tblLograd__Codig__4F7CD00D" Association="Self.FK__tblLograd__Codig__4F7CD00D">
             <End Role="tblBairros" EntitySet="tblBairros" />
             <End Role="tblLogradouros" EntitySet="tblLogradouros" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblLogradour__UF__4D94879B" Association="Self.FK__tblLogradour__UF__4D94879B">
-            <End Role="tblUF" EntitySet="tblUF" />
-            <End Role="tblLogradouros" EntitySet="tblLogradouros" />
-          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SoftHomeDesenvModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -793,14 +775,14 @@
           </Key>
           <Property Name="IdAtendimento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdCliente" Type="Int32" Nullable="false" />
-          <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+          <Property Name="IdAtendente" Type="Int32" Nullable="false" />
           <Property Name="NomeAtendimento" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Comentario" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="DataAtendimento" Type="DateTime" Precision="3" />
+          <Property Name="IdReuniao" Type="Int32" />
           <NavigationProperty Name="Cliente" Relationship="Self.FK__ATENDIMEN__IdCli__5535A963" FromRole="Atendimento" ToRole="Cliente" />
+          <NavigationProperty Name="Reuniao" Relationship="Self.FK__Atendimen__IdReu__2A164134" FromRole="Atendimento" ToRole="Reuniao" />
           <NavigationProperty Name="Usuario" Relationship="Self.FK__ATENDIMEN__IdUsu__5629CD9C" FromRole="Atendimento" ToRole="Usuario" />
-          <NavigationProperty Name="Reuniao" Relationship="Self.FK__Reuniao__IdAtend__04E4BC85" FromRole="Atendimento" ToRole="Reuniao" />
-          <NavigationProperty Name="Reuniao1" Relationship="Self.FK__Reuniao__IdAtend__05D8E0BE" FromRole="Atendimento" ToRole="Reuniao" />
         </EntityType>
         <EntityType Name="Cliente">
           <Key>
@@ -815,19 +797,28 @@
           <Property Name="CPFCliente" Type="String" MaxLength="18" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="dataNascimento" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="IdEndereco" Type="Int32" Nullable="false" />
+          <Property Name="nCasa" Type="Int32" />
           <NavigationProperty Name="Atendimento" Relationship="Self.FK__ATENDIMEN__IdCli__5535A963" FromRole="Cliente" ToRole="Atendimento" />
           <NavigationProperty Name="tblLogradouros" Relationship="Self.FK__Cliente__IdEnder__52593CB8" FromRole="Cliente" ToRole="tblLogradouros" />
+          <NavigationProperty Name="Contatos" Relationship="Self.FK__Contatos__IdClie__2DE6D218" FromRole="Cliente" ToRole="Contatos" />
+          <NavigationProperty Name="ImovelTerceiro" Relationship="Self.FK__ImovelTer__IdCli__29221CFB" FromRole="Cliente" ToRole="ImovelTerceiro" />
           <NavigationProperty Name="Lote" Relationship="Self.FK__Lote__IdCliente__7A672E12" FromRole="Cliente" ToRole="Lote" />
           <NavigationProperty Name="Pagamento" Relationship="Self.FK__Pagamento__IdCli__2180FB33" FromRole="Cliente" ToRole="Pagamento" />
           <NavigationProperty Name="Reuniao" Relationship="Self.FK__Reuniao__IdClien__07C12930" FromRole="Cliente" ToRole="Reuniao" />
           <NavigationProperty Name="Reuniao1" Relationship="Self.FK__Reuniao__IdClien__08B54D69" FromRole="Cliente" ToRole="Reuniao" />
         </EntityType>
-        <EntityType Name="IdTipoImovel">
+        <EntityType Name="Contatos">
           <Key>
-            <PropertyRef Name="IdTipoImovel1" />
+            <PropertyRef Name="IdContato" />
           </Key>
-          <Property Name="IdTipoImovel1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Descricao" Type="Int32" Nullable="false" />
+          <Property Name="IdContato" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCliente" Type="Int32" Nullable="false" />
+          <Property Name="emailCliente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TelResidCliente" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="CelCliente" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="FacebookCliente" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="InstagramCliente" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK__Contatos__IdClie__2DE6D218" FromRole="Contatos" ToRole="Cliente" />
         </EntityType>
         <EntityType Name="Imovel">
           <Key>
@@ -841,28 +832,30 @@
           <Property Name="DataCadastro" Type="DateTime" Precision="3" />
           <NavigationProperty Name="tblLogradouros" Relationship="Self.FK__Imovel__IdEndere__6383C8BA" FromRole="Imovel" ToRole="tblLogradouros" />
           <NavigationProperty Name="TipoImovel1" Relationship="Self.FK__Imovel__TipoImov__6477ECF3" FromRole="Imovel" ToRole="TipoImovel" />
-          <NavigationProperty Name="ImovelTerceiro" Relationship="Self.FK__ImovelTer__Idimo__00200768" FromRole="Imovel" ToRole="ImovelTerceiro" />
+          <NavigationProperty Name="ImovelTerceiro" Relationship="Self.FK__ImovelTer__IdImo__282DF8C2" FromRole="Imovel" ToRole="ImovelTerceiro" />
           <NavigationProperty Name="Loteamento" Relationship="Self.FK__Loteament__IdImo__75A278F5" FromRole="Imovel" ToRole="Loteamento" />
+          <NavigationProperty Name="Reuniao" Relationship="Self.FK__Reuniao__IdImove__2645B050" FromRole="Imovel" ToRole="Reuniao" />
         </EntityType>
         <EntityType Name="ImovelTerceiro">
           <Key>
             <PropertyRef Name="IdImovelTerceiro" />
           </Key>
           <Property Name="IdImovelTerceiro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Idimovel" Type="Int32" Nullable="false" />
-          <Property Name="IdTipoImovel" Type="Int32" Nullable="false" />
           <Property Name="AreaTotal" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
           <Property Name="AreaContru" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Domitotios" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Banheiros" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Garagem" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="TotComodos" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Name="Comentarios" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Comentarios" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
           <Property Name="IdStatus" Type="Int32" />
+          <Property Name="IdTipoImovelTerceiro" Type="Int32" />
+          <Property Name="IdImovel" Type="Int32" />
           <Property Name="IdCliente" Type="Int32" />
-          <NavigationProperty Name="Imovel" Relationship="Self.FK__ImovelTer__Idimo__00200768" FromRole="ImovelTerceiro" ToRole="Imovel" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK__ImovelTer__IdCli__29221CFB" FromRole="ImovelTerceiro" ToRole="Cliente" />
+          <NavigationProperty Name="Imovel" Relationship="Self.FK__ImovelTer__IdImo__282DF8C2" FromRole="ImovelTerceiro" ToRole="Imovel" />
           <NavigationProperty Name="tblStatus" Relationship="Self.FK__ImovelTer__IdSta__02084FDA" FromRole="ImovelTerceiro" ToRole="tblStatus" />
-          <NavigationProperty Name="TipoImovel" Relationship="Self.FK__ImovelTer__IdTip__01142BA1" FromRole="ImovelTerceiro" ToRole="TipoImovel" />
+          <NavigationProperty Name="TipoImovelTerceiro" Relationship="Self.FK__ImovelTer__IdTip__2739D489" FromRole="ImovelTerceiro" ToRole="TipoImovelTerceiro" />
         </EntityType>
         <EntityType Name="Lote">
           <Key>
@@ -904,12 +897,11 @@
         </EntityType>
         <EntityType Name="Negociacao">
           <Key>
-            <PropertyRef Name="IdTipoPagamento" />
+            <PropertyRef Name="IdNegociacao" />
           </Key>
           <Property Name="IdNegociacao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdReuniao" Type="Int32" />
           <Property Name="IdTipoNegociacao" Type="Int32" />
-          <Property Name="IdTipoPagamento" Type="Int32" Nullable="false" />
           <Property Name="IdStatus" Type="Int32" />
           <Property Name="QteDeParc" Type="Int32" />
           <Property Name="ValorTot" Type="Double" />
@@ -917,22 +909,21 @@
           <NavigationProperty Name="Reuniao" Relationship="Self.FK__Negociaca__IdReu__1AD3FDA4" FromRole="Negociacao" ToRole="Reuniao" />
           <NavigationProperty Name="tblStatus" Relationship="Self.FK__Negociaca__IdSta__1DB06A4F" FromRole="Negociacao" ToRole="tblStatus" />
           <NavigationProperty Name="TipoNegociacao" Relationship="Self.FK__Negociaca__IdTip__1BC821DD" FromRole="Negociacao" ToRole="TipoNegociacao" />
-          <NavigationProperty Name="TipoPagamento" Relationship="Self.FK__Negociaca__IdTip__1CBC4616" FromRole="Negociacao" ToRole="TipoPagamento" />
-          <NavigationProperty Name="Pagamento" Relationship="Self.FK__Pagamento__IdNeg__208CD6FA" FromRole="Negociacao" ToRole="Pagamento" />
+          <NavigationProperty Name="Pagamento" Relationship="Self.FK__Pagamento__IdNeg__2B0A656D" FromRole="Negociacao" ToRole="Pagamento" />
         </EntityType>
         <EntityType Name="Pagamento">
           <Key>
-            <PropertyRef Name="IdTipoPagamento" />
+            <PropertyRef Name="IdPagamento" />
           </Key>
           <Property Name="IdPagamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdNegociacao" Type="Int32" />
           <Property Name="IdCliente" Type="Int32" />
           <Property Name="IdStatus" Type="Int32" />
           <Property Name="nParcela" Type="Int32" />
           <Property Name="Valor" Type="Double" />
           <Property Name="IdTipoPagamento" Type="Int32" Nullable="false" />
+          <Property Name="IdNegociacao" Type="Int32" />
           <NavigationProperty Name="Cliente" Relationship="Self.FK__Pagamento__IdCli__2180FB33" FromRole="Pagamento" ToRole="Cliente" />
-          <NavigationProperty Name="Negociacao" Relationship="Self.FK__Pagamento__IdNeg__208CD6FA" FromRole="Pagamento" ToRole="Negociacao" />
+          <NavigationProperty Name="Negociacao" Relationship="Self.FK__Pagamento__IdNeg__2B0A656D" FromRole="Pagamento" ToRole="Negociacao" />
           <NavigationProperty Name="tblStatus" Relationship="Self.FK__Pagamento__IdSta__236943A5" FromRole="Pagamento" ToRole="tblStatus" />
           <NavigationProperty Name="TipoPagamento" Relationship="Self.FK__Pagamento__IdTip__22751F6C" FromRole="Pagamento" ToRole="TipoPagamento" />
         </EntityType>
@@ -941,17 +932,18 @@
             <PropertyRef Name="IdReuniao" />
           </Key>
           <Property Name="IdReuniao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdAtendimento" Type="Int32" Nullable="false" />
-          <Property Name="IdAtendimento2" Type="Int32" Nullable="false" />
-          <Property Name="IdUsuario" Type="Int32" Nullable="false" />
-          <Property Name="IdCliente" Type="Int32" Nullable="false" />
-          <Property Name="IdCliente2" Type="Int32" Nullable="false" />
-          <Property Name="Comentario" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="idCorretor" Type="Int32" Nullable="false" />
+          <Property Name="IdVendedor" Type="Int32" Nullable="false" />
+          <Property Name="idComprador" Type="Int32" Nullable="false" />
+          <Property Name="Comentario" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
           <Property Name="IdStatus" Type="Int32" />
-          <NavigationProperty Name="Atendimento" Relationship="Self.FK__Reuniao__IdAtend__04E4BC85" FromRole="Reuniao" ToRole="Atendimento" />
-          <NavigationProperty Name="Atendimento1" Relationship="Self.FK__Reuniao__IdAtend__05D8E0BE" FromRole="Reuniao" ToRole="Atendimento" />
+          <Property Name="IdImovel" Type="Int32" />
+          <Property Name="NomeReuniao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DataReuniao" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Atendimento" Relationship="Self.FK__Atendimen__IdReu__2A164134" FromRole="Reuniao" ToRole="Atendimento" />
           <NavigationProperty Name="Cliente" Relationship="Self.FK__Reuniao__IdClien__07C12930" FromRole="Reuniao" ToRole="Cliente" />
           <NavigationProperty Name="Cliente1" Relationship="Self.FK__Reuniao__IdClien__08B54D69" FromRole="Reuniao" ToRole="Cliente" />
+          <NavigationProperty Name="Imovel" Relationship="Self.FK__Reuniao__IdImove__2645B050" FromRole="Reuniao" ToRole="Imovel" />
           <NavigationProperty Name="Negociacao" Relationship="Self.FK__Negociaca__IdReu__1AD3FDA4" FromRole="Reuniao" ToRole="Negociacao" />
           <NavigationProperty Name="tblStatus" Relationship="Self.FK__Reuniao__IdStatu__09A971A2" FromRole="Reuniao" ToRole="tblStatus" />
           <NavigationProperty Name="Usuario" Relationship="Self.FK__Reuniao__IdUsuar__06CD04F7" FromRole="Reuniao" ToRole="Usuario" />
@@ -976,7 +968,6 @@
           <Property Name="UF" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CodigoCidade" Type="Int32" Nullable="false" />
           <NavigationProperty Name="tblCidades" Relationship="Self.FK__tblBairro__Codig__4BAC3F29" FromRole="tblBairros" ToRole="tblCidades" />
-          <NavigationProperty Name="tblUF" Relationship="Self.FK__tblBairros__UF__4AB81AF0" FromRole="tblBairros" ToRole="tblUF" />
           <NavigationProperty Name="tblLogradouros" Relationship="Self.FK__tblLograd__Codig__4F7CD00D" FromRole="tblBairros" ToRole="tblLogradouros" />
         </EntityType>
         <EntityType Name="tblCidades">
@@ -993,7 +984,6 @@
           <Property Name="LOC_NU_SEQUENCIAL_SUB" Type="Int32" />
           <NavigationProperty Name="tblBairros" Relationship="Self.FK__tblBairro__Codig__4BAC3F29" FromRole="tblCidades" ToRole="tblBairros" />
           <NavigationProperty Name="tblUF" Relationship="Self.FK__tblCidades__UF__48CFD27E" FromRole="tblCidades" ToRole="tblUF" />
-          <NavigationProperty Name="tblLogradouros" Relationship="Self.FK__tblLograd__Codig__4E88ABD4" FromRole="tblCidades" ToRole="tblLogradouros" />
         </EntityType>
         <EntityType Name="tblLogradouros">
           <Key>
@@ -1014,8 +1004,6 @@
           <NavigationProperty Name="Cliente" Relationship="Self.FK__Cliente__IdEnder__52593CB8" FromRole="tblLogradouros" ToRole="Cliente" />
           <NavigationProperty Name="Imovel" Relationship="Self.FK__Imovel__IdEndere__6383C8BA" FromRole="tblLogradouros" ToRole="Imovel" />
           <NavigationProperty Name="tblBairros" Relationship="Self.FK__tblLograd__Codig__4F7CD00D" FromRole="tblLogradouros" ToRole="tblBairros" />
-          <NavigationProperty Name="tblCidades" Relationship="Self.FK__tblLograd__Codig__4E88ABD4" FromRole="tblLogradouros" ToRole="tblCidades" />
-          <NavigationProperty Name="tblUF" Relationship="Self.FK__tblLogradour__UF__4D94879B" FromRole="tblLogradouros" ToRole="tblUF" />
         </EntityType>
         <EntityType Name="tblStatus">
           <Key>
@@ -1037,9 +1025,7 @@
           </Key>
           <Property Name="Codigo" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Descricao" Type="String" MaxLength="72" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="tblBairros" Relationship="Self.FK__tblBairros__UF__4AB81AF0" FromRole="tblUF" ToRole="tblBairros" />
           <NavigationProperty Name="tblCidades" Relationship="Self.FK__tblCidades__UF__48CFD27E" FromRole="tblUF" ToRole="tblCidades" />
-          <NavigationProperty Name="tblLogradouros" Relationship="Self.FK__tblLogradour__UF__4D94879B" FromRole="tblUF" ToRole="tblLogradouros" />
         </EntityType>
         <EntityType Name="TipoImovel">
           <Key>
@@ -1048,7 +1034,14 @@
           <Property Name="IdTipoImovel" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Imovel" Relationship="Self.FK__Imovel__TipoImov__6477ECF3" FromRole="TipoImovel" ToRole="Imovel" />
-          <NavigationProperty Name="ImovelTerceiro" Relationship="Self.FK__ImovelTer__IdTip__01142BA1" FromRole="TipoImovel" ToRole="ImovelTerceiro" />
+        </EntityType>
+        <EntityType Name="TipoImovelTerceiro">
+          <Key>
+            <PropertyRef Name="IdTipoImovel" />
+          </Key>
+          <Property Name="IdTipoImovel" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ImovelTerceiro" Relationship="Self.FK__ImovelTer__IdTip__2739D489" FromRole="TipoImovelTerceiro" ToRole="ImovelTerceiro" />
         </EntityType>
         <EntityType Name="TipoNegociacao">
           <Key>
@@ -1064,7 +1057,6 @@
           </Key>
           <Property Name="IdTipoPagamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Descricao" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Negociacao" Relationship="Self.FK__Negociaca__IdTip__1CBC4616" FromRole="TipoPagamento" ToRole="Negociacao" />
           <NavigationProperty Name="Pagamento" Relationship="Self.FK__Pagamento__IdTip__22751F6C" FromRole="TipoPagamento" ToRole="Pagamento" />
         </EntityType>
         <EntityType Name="Usuario">
@@ -1092,6 +1084,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Atendimen__IdReu__2A164134">
+          <End Role="Reuniao" Type="Self.Reuniao" Multiplicity="0..1" />
+          <End Role="Atendimento" Type="Self.Atendimento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reuniao">
+              <PropertyRef Name="IdReuniao" />
+            </Principal>
+            <Dependent Role="Atendimento">
+              <PropertyRef Name="IdReuniao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__ATENDIMEN__IdUsu__5629CD9C">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
           <End Role="Atendimento" Type="Self.Atendimento" Multiplicity="*" />
@@ -1100,31 +1104,7 @@
               <PropertyRef Name="IdUsuario" />
             </Principal>
             <Dependent Role="Atendimento">
-              <PropertyRef Name="IdUsuario" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Reuniao__IdAtend__04E4BC85">
-          <End Role="Atendimento" Type="Self.Atendimento" Multiplicity="1" />
-          <End Role="Reuniao" Type="Self.Reuniao" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Atendimento">
-              <PropertyRef Name="IdAtendimento" />
-            </Principal>
-            <Dependent Role="Reuniao">
-              <PropertyRef Name="IdAtendimento" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Reuniao__IdAtend__05D8E0BE">
-          <End Role="Atendimento" Type="Self.Atendimento" Multiplicity="1" />
-          <End Role="Reuniao" Type="Self.Reuniao" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Atendimento">
-              <PropertyRef Name="IdAtendimento" />
-            </Principal>
-            <Dependent Role="Reuniao">
-              <PropertyRef Name="IdAtendimento2" />
+              <PropertyRef Name="IdAtendente" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1137,6 +1117,30 @@
             </Principal>
             <Dependent Role="Cliente">
               <PropertyRef Name="IdEndereco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Contatos__IdClie__2DE6D218">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="Contatos" Type="Self.Contatos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="Contatos">
+              <PropertyRef Name="IdCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ImovelTer__IdCli__29221CFB">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+          <End Role="ImovelTerceiro" Type="Self.ImovelTerceiro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="ImovelTerceiro">
+              <PropertyRef Name="IdCliente" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1172,7 +1176,7 @@
               <PropertyRef Name="IdCliente" />
             </Principal>
             <Dependent Role="Reuniao">
-              <PropertyRef Name="IdCliente" />
+              <PropertyRef Name="IdVendedor" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1184,7 +1188,7 @@
               <PropertyRef Name="IdCliente" />
             </Principal>
             <Dependent Role="Reuniao">
-              <PropertyRef Name="IdCliente2" />
+              <PropertyRef Name="idComprador" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1212,15 +1216,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ImovelTer__Idimo__00200768">
-          <End Role="Imovel" Type="Self.Imovel" Multiplicity="1" />
+        <Association Name="FK__ImovelTer__IdImo__282DF8C2">
+          <End Role="Imovel" Type="Self.Imovel" Multiplicity="0..1" />
           <End Role="ImovelTerceiro" Type="Self.ImovelTerceiro" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Imovel">
               <PropertyRef Name="IdImovel" />
             </Principal>
             <Dependent Role="ImovelTerceiro">
-              <PropertyRef Name="Idimovel" />
+              <PropertyRef Name="IdImovel" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1232,6 +1236,18 @@
               <PropertyRef Name="IdImovel" />
             </Principal>
             <Dependent Role="Loteamento">
+              <PropertyRef Name="IdImovel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reuniao__IdImove__2645B050">
+          <End Role="Imovel" Type="Self.Imovel" Multiplicity="0..1" />
+          <End Role="Reuniao" Type="Self.Reuniao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Imovel">
+              <PropertyRef Name="IdImovel" />
+            </Principal>
+            <Dependent Role="Reuniao">
               <PropertyRef Name="IdImovel" />
             </Dependent>
           </ReferentialConstraint>
@@ -1248,15 +1264,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ImovelTer__IdTip__01142BA1">
-          <End Role="TipoImovel" Type="Self.TipoImovel" Multiplicity="1" />
+        <Association Name="FK__ImovelTer__IdTip__2739D489">
+          <End Role="TipoImovelTerceiro" Type="Self.TipoImovelTerceiro" Multiplicity="0..1" />
           <End Role="ImovelTerceiro" Type="Self.ImovelTerceiro" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TipoImovel">
+            <Principal Role="TipoImovelTerceiro">
               <PropertyRef Name="IdTipoImovel" />
             </Principal>
             <Dependent Role="ImovelTerceiro">
-              <PropertyRef Name="IdTipoImovel" />
+              <PropertyRef Name="IdTipoImovelTerceiro" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1332,24 +1348,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Negociaca__IdTip__1CBC4616">
-          <End Role="TipoPagamento" Type="Self.TipoPagamento" Multiplicity="1" />
-          <End Role="Negociacao" Type="Self.Negociacao" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="TipoPagamento">
-              <PropertyRef Name="IdTipoPagamento" />
-            </Principal>
-            <Dependent Role="Negociacao">
-              <PropertyRef Name="IdTipoPagamento" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Pagamento__IdNeg__208CD6FA">
+        <Association Name="FK__Pagamento__IdNeg__2B0A656D">
           <End Role="Negociacao" Type="Self.Negociacao" Multiplicity="0..1" />
           <End Role="Pagamento" Type="Self.Pagamento" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Negociacao">
-              <PropertyRef Name="IdTipoPagamento" />
+              <PropertyRef Name="IdNegociacao" />
             </Principal>
             <Dependent Role="Pagamento">
               <PropertyRef Name="IdNegociacao" />
@@ -1370,7 +1374,7 @@
         </Association>
         <Association Name="FK__Pagamento__IdTip__22751F6C">
           <End Role="TipoPagamento" Type="Self.TipoPagamento" Multiplicity="1" />
-          <End Role="Pagamento" Type="Self.Pagamento" Multiplicity="0..1" />
+          <End Role="Pagamento" Type="Self.Pagamento" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TipoPagamento">
               <PropertyRef Name="IdTipoPagamento" />
@@ -1400,7 +1404,7 @@
               <PropertyRef Name="IdUsuario" />
             </Principal>
             <Dependent Role="Reuniao">
-              <PropertyRef Name="IdUsuario" />
+              <PropertyRef Name="idCorretor" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1413,18 +1417,6 @@
             </Principal>
             <Dependent Role="tblBairros">
               <PropertyRef Name="CodigoCidade" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__tblBairros__UF__4AB81AF0">
-          <End Role="tblUF" Type="Self.tblUF" Multiplicity="1" />
-          <End Role="tblBairros" Type="Self.tblBairros" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblUF">
-              <PropertyRef Name="Codigo" />
-            </Principal>
-            <Dependent Role="tblBairros">
-              <PropertyRef Name="UF" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1452,34 +1444,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblLograd__Codig__4E88ABD4">
-          <End Role="tblCidades" Type="Self.tblCidades" Multiplicity="1" />
-          <End Role="tblLogradouros" Type="Self.tblLogradouros" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblCidades">
-              <PropertyRef Name="Codigo" />
-            </Principal>
-            <Dependent Role="tblLogradouros">
-              <PropertyRef Name="CodigoCidade" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__tblLogradour__UF__4D94879B">
-          <End Role="tblUF" Type="Self.tblUF" Multiplicity="1" />
-          <End Role="tblLogradouros" Type="Self.tblLogradouros" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblUF">
-              <PropertyRef Name="Codigo" />
-            </Principal>
-            <Dependent Role="tblLogradouros">
-              <PropertyRef Name="UF" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="SoftHomeDesenvEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Atendimento" EntityType="Self.Atendimento" />
           <EntitySet Name="Cliente" EntityType="Self.Cliente" />
-          <EntitySet Name="IdTipoImovel" EntityType="Self.IdTipoImovel" />
+          <EntitySet Name="Contatos" EntityType="Self.Contatos" />
           <EntitySet Name="Imovel" EntityType="Self.Imovel" />
           <EntitySet Name="ImovelTerceiro" EntityType="Self.ImovelTerceiro" />
           <EntitySet Name="Lote" EntityType="Self.Lote" />
@@ -1494,6 +1462,7 @@
           <EntitySet Name="tblStatus" EntityType="Self.tblStatus" />
           <EntitySet Name="tblUF" EntityType="Self.tblUF" />
           <EntitySet Name="TipoImovel" EntityType="Self.TipoImovel" />
+          <EntitySet Name="TipoImovelTerceiro" EntityType="Self.TipoImovelTerceiro" />
           <EntitySet Name="TipoNegociacao" EntityType="Self.TipoNegociacao" />
           <EntitySet Name="TipoPagamento" EntityType="Self.TipoPagamento" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" />
@@ -1501,21 +1470,25 @@
             <End Role="Cliente" EntitySet="Cliente" />
             <End Role="Atendimento" EntitySet="Atendimento" />
           </AssociationSet>
+          <AssociationSet Name="FK__Atendimen__IdReu__2A164134" Association="Self.FK__Atendimen__IdReu__2A164134">
+            <End Role="Reuniao" EntitySet="Reuniao" />
+            <End Role="Atendimento" EntitySet="Atendimento" />
+          </AssociationSet>
           <AssociationSet Name="FK__ATENDIMEN__IdUsu__5629CD9C" Association="Self.FK__ATENDIMEN__IdUsu__5629CD9C">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Atendimento" EntitySet="Atendimento" />
           </AssociationSet>
-          <AssociationSet Name="FK__Reuniao__IdAtend__04E4BC85" Association="Self.FK__Reuniao__IdAtend__04E4BC85">
-            <End Role="Atendimento" EntitySet="Atendimento" />
-            <End Role="Reuniao" EntitySet="Reuniao" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Reuniao__IdAtend__05D8E0BE" Association="Self.FK__Reuniao__IdAtend__05D8E0BE">
-            <End Role="Atendimento" EntitySet="Atendimento" />
-            <End Role="Reuniao" EntitySet="Reuniao" />
-          </AssociationSet>
           <AssociationSet Name="FK__Cliente__IdEnder__52593CB8" Association="Self.FK__Cliente__IdEnder__52593CB8">
             <End Role="tblLogradouros" EntitySet="tblLogradouros" />
             <End Role="Cliente" EntitySet="Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Contatos__IdClie__2DE6D218" Association="Self.FK__Contatos__IdClie__2DE6D218">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Contatos" EntitySet="Contatos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ImovelTer__IdCli__29221CFB" Association="Self.FK__ImovelTer__IdCli__29221CFB">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="ImovelTerceiro" EntitySet="ImovelTerceiro" />
           </AssociationSet>
           <AssociationSet Name="FK__Lote__IdCliente__7A672E12" Association="Self.FK__Lote__IdCliente__7A672E12">
             <End Role="Cliente" EntitySet="Cliente" />
@@ -1541,7 +1514,7 @@
             <End Role="TipoImovel" EntitySet="TipoImovel" />
             <End Role="Imovel" EntitySet="Imovel" />
           </AssociationSet>
-          <AssociationSet Name="FK__ImovelTer__Idimo__00200768" Association="Self.FK__ImovelTer__Idimo__00200768">
+          <AssociationSet Name="FK__ImovelTer__IdImo__282DF8C2" Association="Self.FK__ImovelTer__IdImo__282DF8C2">
             <End Role="Imovel" EntitySet="Imovel" />
             <End Role="ImovelTerceiro" EntitySet="ImovelTerceiro" />
           </AssociationSet>
@@ -1549,12 +1522,16 @@
             <End Role="Imovel" EntitySet="Imovel" />
             <End Role="Loteamento" EntitySet="Loteamento" />
           </AssociationSet>
+          <AssociationSet Name="FK__Reuniao__IdImove__2645B050" Association="Self.FK__Reuniao__IdImove__2645B050">
+            <End Role="Imovel" EntitySet="Imovel" />
+            <End Role="Reuniao" EntitySet="Reuniao" />
+          </AssociationSet>
           <AssociationSet Name="FK__ImovelTer__IdSta__02084FDA" Association="Self.FK__ImovelTer__IdSta__02084FDA">
             <End Role="tblStatus" EntitySet="tblStatus" />
             <End Role="ImovelTerceiro" EntitySet="ImovelTerceiro" />
           </AssociationSet>
-          <AssociationSet Name="FK__ImovelTer__IdTip__01142BA1" Association="Self.FK__ImovelTer__IdTip__01142BA1">
-            <End Role="TipoImovel" EntitySet="TipoImovel" />
+          <AssociationSet Name="FK__ImovelTer__IdTip__2739D489" Association="Self.FK__ImovelTer__IdTip__2739D489">
+            <End Role="TipoImovelTerceiro" EntitySet="TipoImovelTerceiro" />
             <End Role="ImovelTerceiro" EntitySet="ImovelTerceiro" />
           </AssociationSet>
           <AssociationSet Name="FK__Lote__IdLoteamen__797309D9" Association="Self.FK__Lote__IdLoteamen__797309D9">
@@ -1581,11 +1558,7 @@
             <End Role="TipoNegociacao" EntitySet="TipoNegociacao" />
             <End Role="Negociacao" EntitySet="Negociacao" />
           </AssociationSet>
-          <AssociationSet Name="FK__Negociaca__IdTip__1CBC4616" Association="Self.FK__Negociaca__IdTip__1CBC4616">
-            <End Role="TipoPagamento" EntitySet="TipoPagamento" />
-            <End Role="Negociacao" EntitySet="Negociacao" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Pagamento__IdNeg__208CD6FA" Association="Self.FK__Pagamento__IdNeg__208CD6FA">
+          <AssociationSet Name="FK__Pagamento__IdNeg__2B0A656D" Association="Self.FK__Pagamento__IdNeg__2B0A656D">
             <End Role="Negociacao" EntitySet="Negociacao" />
             <End Role="Pagamento" EntitySet="Pagamento" />
           </AssociationSet>
@@ -1609,10 +1582,6 @@
             <End Role="tblCidades" EntitySet="tblCidades" />
             <End Role="tblBairros" EntitySet="tblBairros" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblBairros__UF__4AB81AF0" Association="Self.FK__tblBairros__UF__4AB81AF0">
-            <End Role="tblUF" EntitySet="tblUF" />
-            <End Role="tblBairros" EntitySet="tblBairros" />
-          </AssociationSet>
           <AssociationSet Name="FK__tblLograd__Codig__4F7CD00D" Association="Self.FK__tblLograd__Codig__4F7CD00D">
             <End Role="tblBairros" EntitySet="tblBairros" />
             <End Role="tblLogradouros" EntitySet="tblLogradouros" />
@@ -1620,14 +1589,6 @@
           <AssociationSet Name="FK__tblCidades__UF__48CFD27E" Association="Self.FK__tblCidades__UF__48CFD27E">
             <End Role="tblUF" EntitySet="tblUF" />
             <End Role="tblCidades" EntitySet="tblCidades" />
-          </AssociationSet>
-          <AssociationSet Name="FK__tblLograd__Codig__4E88ABD4" Association="Self.FK__tblLograd__Codig__4E88ABD4">
-            <End Role="tblCidades" EntitySet="tblCidades" />
-            <End Role="tblLogradouros" EntitySet="tblLogradouros" />
-          </AssociationSet>
-          <AssociationSet Name="FK__tblLogradour__UF__4D94879B" Association="Self.FK__tblLogradour__UF__4D94879B">
-            <End Role="tblUF" EntitySet="tblUF" />
-            <End Role="tblLogradouros" EntitySet="tblLogradouros" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -1641,10 +1602,11 @@
               <MappingFragment StoreEntitySet="Atendimento">
                 <ScalarProperty Name="IdAtendimento" ColumnName="IdAtendimento" />
                 <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
-                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="IdAtendente" ColumnName="IdAtendente" />
                 <ScalarProperty Name="NomeAtendimento" ColumnName="NomeAtendimento" />
                 <ScalarProperty Name="Comentario" ColumnName="Comentario" />
                 <ScalarProperty Name="DataAtendimento" ColumnName="DataAtendimento" />
+                <ScalarProperty Name="IdReuniao" ColumnName="IdReuniao" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1660,14 +1622,20 @@
                 <ScalarProperty Name="CPFCliente" ColumnName="CPFCliente" />
                 <ScalarProperty Name="dataNascimento" ColumnName="dataNascimento" />
                 <ScalarProperty Name="IdEndereco" ColumnName="IdEndereco" />
+                <ScalarProperty Name="nCasa" ColumnName="nCasa" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="IdTipoImovel">
-            <EntityTypeMapping TypeName="SoftHomeDesenvModel.IdTipoImovel">
-              <MappingFragment StoreEntitySet="IdTipoImovel">
-                <ScalarProperty Name="IdTipoImovel1" ColumnName="IdTipoImovel" />
-                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <EntitySetMapping Name="Contatos">
+            <EntityTypeMapping TypeName="SoftHomeDesenvModel.Contatos">
+              <MappingFragment StoreEntitySet="Contatos">
+                <ScalarProperty Name="IdContato" ColumnName="IdContato" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="emailCliente" ColumnName="emailCliente" />
+                <ScalarProperty Name="TelResidCliente" ColumnName="TelResidCliente" />
+                <ScalarProperty Name="CelCliente" ColumnName="CelCliente" />
+                <ScalarProperty Name="FacebookCliente" ColumnName="FacebookCliente" />
+                <ScalarProperty Name="InstagramCliente" ColumnName="InstagramCliente" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1687,8 +1655,6 @@
             <EntityTypeMapping TypeName="SoftHomeDesenvModel.ImovelTerceiro">
               <MappingFragment StoreEntitySet="ImovelTerceiro">
                 <ScalarProperty Name="IdImovelTerceiro" ColumnName="IdImovelTerceiro" />
-                <ScalarProperty Name="Idimovel" ColumnName="Idimovel" />
-                <ScalarProperty Name="IdTipoImovel" ColumnName="IdTipoImovel" />
                 <ScalarProperty Name="AreaTotal" ColumnName="AreaTotal" />
                 <ScalarProperty Name="AreaContru" ColumnName="AreaContru" />
                 <ScalarProperty Name="Domitotios" ColumnName="Domitotios" />
@@ -1697,6 +1663,8 @@
                 <ScalarProperty Name="TotComodos" ColumnName="TotComodos" />
                 <ScalarProperty Name="Comentarios" ColumnName="Comentarios" />
                 <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
+                <ScalarProperty Name="IdTipoImovelTerceiro" ColumnName="IdTipoImovelTerceiro" />
+                <ScalarProperty Name="IdImovel" ColumnName="IdImovel" />
                 <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1741,7 +1709,6 @@
                 <ScalarProperty Name="IdNegociacao" ColumnName="IdNegociacao" />
                 <ScalarProperty Name="IdReuniao" ColumnName="IdReuniao" />
                 <ScalarProperty Name="IdTipoNegociacao" ColumnName="IdTipoNegociacao" />
-                <ScalarProperty Name="IdTipoPagamento" ColumnName="IdTipoPagamento" />
                 <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
                 <ScalarProperty Name="QteDeParc" ColumnName="QteDeParc" />
                 <ScalarProperty Name="ValorTot" ColumnName="ValorTot" />
@@ -1753,12 +1720,12 @@
             <EntityTypeMapping TypeName="SoftHomeDesenvModel.Pagamento">
               <MappingFragment StoreEntitySet="Pagamento">
                 <ScalarProperty Name="IdPagamento" ColumnName="IdPagamento" />
-                <ScalarProperty Name="IdNegociacao" ColumnName="IdNegociacao" />
                 <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
                 <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
                 <ScalarProperty Name="nParcela" ColumnName="nParcela" />
                 <ScalarProperty Name="Valor" ColumnName="Valor" />
                 <ScalarProperty Name="IdTipoPagamento" ColumnName="IdTipoPagamento" />
+                <ScalarProperty Name="IdNegociacao" ColumnName="IdNegociacao" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1766,13 +1733,14 @@
             <EntityTypeMapping TypeName="SoftHomeDesenvModel.Reuniao">
               <MappingFragment StoreEntitySet="Reuniao">
                 <ScalarProperty Name="IdReuniao" ColumnName="IdReuniao" />
-                <ScalarProperty Name="IdAtendimento" ColumnName="IdAtendimento" />
-                <ScalarProperty Name="IdAtendimento2" ColumnName="IdAtendimento2" />
-                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
-                <ScalarProperty Name="IdCliente2" ColumnName="IdCliente2" />
+                <ScalarProperty Name="idCorretor" ColumnName="idCorretor" />
+                <ScalarProperty Name="IdVendedor" ColumnName="IdVendedor" />
+                <ScalarProperty Name="idComprador" ColumnName="idComprador" />
                 <ScalarProperty Name="Comentario" ColumnName="Comentario" />
                 <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
+                <ScalarProperty Name="IdImovel" ColumnName="IdImovel" />
+                <ScalarProperty Name="NomeReuniao" ColumnName="NomeReuniao" />
+                <ScalarProperty Name="DataReuniao" ColumnName="DataReuniao" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1855,6 +1823,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="TipoImovelTerceiro">
+            <EntityTypeMapping TypeName="SoftHomeDesenvModel.TipoImovelTerceiro">
+              <MappingFragment StoreEntitySet="TipoImovelTerceiro">
+                <ScalarProperty Name="IdTipoImovel" ColumnName="IdTipoImovel" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="TipoNegociacao">
             <EntityTypeMapping TypeName="SoftHomeDesenvModel.TipoNegociacao">
               <MappingFragment StoreEntitySet="TipoNegociacao">
@@ -1899,7 +1875,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>

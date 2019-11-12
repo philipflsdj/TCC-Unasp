@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Tcc_Unasp.Models.Negociacao>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.QteDeParc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValorTot)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comentario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Reuniao.Comentario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblStatus.Tabela)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoNegociacao.Descricao)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.QteDeParc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValorTot)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comentario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Reuniao.Comentario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblStatus.Tabela)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoNegociacao.Descricao)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdNegociacao }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdNegociacao }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdNegociacao })
+        </td>
+    </tr>
+}
+
+</table>

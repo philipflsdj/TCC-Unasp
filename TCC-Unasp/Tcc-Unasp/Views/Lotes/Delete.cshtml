@@ -1,0 +1,137 @@
+﻿@model Tcc_Unasp.Models.Lote
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Lote</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NLote)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NLote)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nquadra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nquadra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mfrente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mfrente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mfundo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mfundo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MLAtDir)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MLAtDir)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MLatEsc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MLatEsc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Confrontante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Confrontante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AreaQuadrada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AreaQuadrada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Matricula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Matricula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IPTU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IPTU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rua)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rua)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente.NomeCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.NomeCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Loteamento.NomeLoteamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Loteamento.NomeLoteamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblStatus.Tabela)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblStatus.Tabela)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,83 @@
+﻿@model Tcc_Unasp.Models.Reuniao
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Reuniao</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Comentario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comentario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeReuniao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeReuniao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataReuniao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataReuniao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente.NomeCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.NomeCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente1.NomeCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente1.NomeCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Imovel.StatusImovel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imovel.StatusImovel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblStatus.Tabela)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblStatus.Tabela)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario.emailUsuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario.emailUsuario)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdReuniao }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
