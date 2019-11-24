@@ -8,7 +8,7 @@
 <div class="col-lg-12">
     <div class="card mb-4">
         <div class="card-header">
-            <h2><strong>Novo Atendimento</strong></h2>
+            <h4 class="m-0 font-weight-bold text-primary">Novo Atendimento</h4>
         </div>
         
         <div class="card-body">
@@ -29,8 +29,8 @@
                     <div class="form-horizontal">
                         <div class="form-group">
                             <div class="row">
-                                <label class="control-label" for="inlineFormInputGroupUsername">Selecione o Cliente:</label>
-                                <select class="js-example-basic-multiple" name="NomeCliente">
+                                <label class="control-label col-md-2" for="inlineFormInputGroupUsername">Selecione o Cliente:</label>
+                                <select class="js-example-basic-multiple form-control col-md-6" name="NomeCliente">
                                     <option value="Default">-----Selecione uma Opção-----</option>
                                     @foreach (var Cliente in ViewBag.ListaClientes)
                                     {
@@ -38,8 +38,9 @@
                                     }
                                 </select>
                                 <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;
                                 <!-- Botão para acionar modal -->
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalLongoExemplo">
+                                <button type="button" class="btn btn-primary col-md-2" data-toggle="modal" data-target="#ModalLongoExemplo">
                                     <i class="fas fa-user-plus"></i>
                                     <span>Novo Cliente</span>
                                 </button>

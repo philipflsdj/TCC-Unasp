@@ -7,6 +7,7 @@ using Tcc_Unasp.Models;
 
 namespace Tcc_Unasp.Controllers
 {
+    
     public class HomeController : Controller
     {
         private SoftHomeDesenvEntities db = new SoftHomeDesenvEntities();

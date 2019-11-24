@@ -4,7 +4,11 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
-
+<script>
+$(document).ready(function(){
+    $('.money2').mask('000.000.000.000.000,00', {reverse: true});
+});
+</script>
 @*<h2>Index</h2>
 
 <p>
@@ -22,8 +26,9 @@
                         <tr>
                             <th>Tipo de Imóvel</th>
                             <th>Bairro</th>
-                            <th>Quantidade de Dormitórios</th>
-                            <th>Comentários</th>
+                            <th>Qte de Dormitórios</th>
+                            <th>Valor do Imóvel</th>
+                            <th>Proprietário</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
@@ -31,8 +36,9 @@
                         <tr>
                             <th>Tipo de Imóvel</th>
                             <th>Bairro</th>
-                            <th>Quantidade de Dormitórios</th>
-                            <th>Comentários</th>
+                            <th>Qte de Dormitórios</th>
+                            <th>Valor do Imóvel</th>
+                            <th>Proprietário</th>
                             <th>Ações</th>
                         </tr>
                     </tfoot>
@@ -51,14 +57,16 @@
                                     @Html.DisplayFor(modelItem => item.Domitotios)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Comentarios)
+                                    R$ @Html.DisplayFor(modelItem => item.VlrImovel)
                                 </td>
-
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Cliente.NomeCliente)
+                                </td>
                                 <td>
 
-                                    <a class="btn btn-primary" href="@Url.Action("Edit","Clientes", new { id = item.IdImovel })"><i class="fas fa-pencil-alt" style="color:white"></i></a> |
-                                    <a class="btn btn-warning" href="@Url.Action("Details","Clientes", new { id = item.IdImovel})"><i class="fas fa-list-alt" style="color:white"></i></a> |
-                                    <a class="btn btn-danger" href="@Url.Action("Delete","Clientes", new { id = item.IdImovel })"><i class="fas fa-trash-alt" style="color:white"></i></a>
+                                    <a class="btn btn-primary" href="@Url.Action("Edit","ImoveisTerceiros", new { id = item.IdImovelTerceiro })"><i class="fas fa-pencil-alt" style="color:white"></i></a> |
+                                    <a class="btn btn-warning" href="@Url.Action("Details","ImoveisTerceiros", new { id = item.IdImovelTerceiro})"><i class="fas fa-list-alt" style="color:white"></i></a> |
+                                    <a class="btn btn-danger" href="@Url.Action("Delete","ImoveisTerceiros", new { id = item.IdImovelTerceiro })"><i class="fas fa-trash-alt" style="color:white"></i></a>
                                 </td>
                             </tr>
                         }

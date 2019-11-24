@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -51,7 +51,40 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.2\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.4.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -120,14 +153,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AtendimentosController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\ContatosController.cs" />
@@ -135,9 +166,10 @@
     <Compile Include="Controllers\ImoveisController.cs" />
     <Compile Include="Controllers\ImoveisTerceirosController.cs" />
     <Compile Include="Controllers\InicialController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\AutenticationController.cs" />
     <Compile Include="Controllers\LoteamentosController.cs" />
     <Compile Include="Controllers\LotesController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NegociacoesController.cs" />
     <Compile Include="Controllers\PagamentosController.cs" />
     <Compile Include="Controllers\ReunioesController.cs" />
@@ -150,6 +182,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Atendimento.cs">
       <DependentUpon>SoftHomeDesenv.tt</DependentUpon>
     </Compile>
@@ -159,6 +192,7 @@
     <Compile Include="Models\Contatos.cs">
       <DependentUpon>SoftHomeDesenv.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Imovel.cs">
       <DependentUpon>SoftHomeDesenv.tt</DependentUpon>
     </Compile>
@@ -171,6 +205,7 @@
     <Compile Include="Models\Loteamento.cs">
       <DependentUpon>SoftHomeDesenv.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Negociacao.cs">
       <DependentUpon>SoftHomeDesenv.tt</DependentUpon>
     </Compile>
@@ -229,12 +264,47 @@
       <DependentUpon>SoftHomeDesenv.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-GuiaLogin-20191113120337.mdf" />
+    <Content Include="App_Data\aspnet-GuiaLogin-20191113120337_log.ldf">
+      <DependentUpon>aspnet-GuiaLogin-20191113120337.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Data\SoftHomeTeste.mdf" />
     <Content Include="App_Data\SoftHomeTeste_log.ldf">
       <DependentUpon>SoftHomeTeste.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\assets\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\assets\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\assets\dropdown-menu\script.js" />
+    <Content Include="Content\assets\dropdown-menu\style.light.css" />
+    <Content Include="Content\assets\images\bingnan-li-ijragtbnomc-unsplash-1400x933.jpg" />
+    <Content Include="Content\assets\images\footer-logo.png" />
+    <Content Include="Content\assets\images\logo-sem-fundo-166x128.png" />
+    <Content Include="Content\assets\images\logo.png" />
+    <Content Include="Content\assets\images\mbr-1920x1309.jpeg" />
+    <Content Include="Content\assets\images\photo-2.jpg" />
+    <Content Include="Content\assets\images\photo-4.jpg" />
+    <Content Include="Content\assets\images\screenshot-1-1400x668.png" />
+    <Content Include="Content\assets\images\screenshot-2-1400x709.png" />
+    <Content Include="Content\assets\index.html" />
+    <Content Include="Content\assets\jarallax\jarallax.js" />
+    <Content Include="Content\assets\mobirise\css\mbr-additional.css" />
+    <Content Include="Content\assets\puritym\css\style.css" />
+    <Content Include="Content\assets\puritym\js\script.js" />
+    <Content Include="Content\assets\smooth-scroll\smooth-scroll.js" />
+    <Content Include="Content\assets\social-likes\social-likes.js" />
+    <Content Include="Content\assets\socicon\css\socicon.min.css" />
+    <Content Include="Content\assets\socicon\fonts\socicon.svg" />
+    <Content Include="Content\assets\tether\tether.min.css" />
+    <Content Include="Content\assets\tether\tether.min.js" />
+    <Content Include="Content\assets\web\assets\jquery\jquery.min.js" />
+    <Content Include="Content\assets\web\assets\mobirise-icons-bold\mobirise-icons-bold.css" />
+    <Content Include="Content\assets\web\assets\mobirise-icons-bold\mobirise-icons-bold.svg" />
+    <Content Include="Content\assets\web\assets\mobirise-icons\mobirise-icons.css" />
+    <Content Include="Content\assets\web\assets\mobirise-icons\mobirise-icons.svg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -5054,7 +5124,6 @@
     <Content Include="images\image-gallery\thumb\thumb-7.jpg" />
     <Content Include="images\image-gallery\thumb\thumb-8.jpg" />
     <Content Include="images\image-gallery\thumb\thumb-9.jpg" />
-    <Content Include="images\logo.JPG" />
     <Content Include="images\logo_sem_fundo.JPG" />
     <Content Include="images\logo_sem_fundo.png" />
     <Content Include="images\logo_sem_fundo_branco.png" />
@@ -5346,6 +5415,21 @@
     <Content Include="Models\SoftHomeDesenv.edmx.diagram">
       <DependentUpon>SoftHomeDesenv.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\assets\images\hashes.json" />
+    <Content Include="Content\assets\socicon\fonts\socicon.eot" />
+    <Content Include="Content\assets\socicon\fonts\socicon.ttf" />
+    <Content Include="Content\assets\socicon\fonts\socicon.woff" />
+    <Content Include="Content\assets\socicon\fonts\socicon.woff2" />
+    <Content Include="Content\assets\web\assets\mobirise-icons-bold\mobirise-icons-bold.eot" />
+    <Content Include="Content\assets\web\assets\mobirise-icons-bold\mobirise-icons-bold.ttf" />
+    <Content Include="Content\assets\web\assets\mobirise-icons-bold\mobirise-icons-bold.woff" />
+    <Content Include="Content\assets\web\assets\mobirise-icons\mobirise-icons.eot" />
+    <Content Include="Content\assets\web\assets\mobirise-icons\mobirise-icons.ttf" />
+    <Content Include="Content\assets\web\assets\mobirise-icons\mobirise-icons.woff" />
+    <None Include="Properties\PublishProfiles\SoftHome - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\Tcc-Unasp20191120041624 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\Tcc-Unasp20191120050129 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\Tcc-Unasp20191122114127 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -5417,7 +5501,7 @@
     <Content Include="Views\Shared\_DashboardLayout.cshtml" />
     <Content Include="Views\Inicial\Index.cshtml" />
     <Content Include="Views\Shared\_InicialLayout.cshtml" />
-    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Autentication\Index.cshtml" />
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
     <Content Include="Views\Atendimentos\Create.cshtml" />
     <Content Include="Views\Atendimentos\Delete.cshtml" />
@@ -5502,8 +5586,29 @@
     <Content Include="Views\TipoImovelTerceiroes\Edit.cshtml" />
     <Content Include="Views\TipoImovelTerceiroes\Index.cshtml" />
     <Content Include="Views\Shared\_CreateImovel.cshtml" />
+    <Content Include="Views\Account\Autentication.cshtml" />
+    <Content Include="Views\Autentication\Login.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -5520,6 +5625,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -5552,7 +5658,7 @@
     <PropertyGroup>
       <ErrorText>Este projeto faz referência a pacotes do NuGet que não estão presentes neste computador. Use a Restauração de Pacotes do NuGet para baixá-los.  Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkID=322105. O arquivo ausente é {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

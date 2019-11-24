@@ -71,6 +71,7 @@
           <Property Name="IdTipoImovelTerceiro" Type="int" />
           <Property Name="IdImovel" Type="int" />
           <Property Name="IdCliente" Type="int" />
+          <Property Name="VlrImovel" Type="float" />
         </EntityType>
         <EntityType Name="Lote">
           <Key>
@@ -856,6 +857,7 @@
           <NavigationProperty Name="Imovel" Relationship="Self.FK__ImovelTer__IdImo__282DF8C2" FromRole="ImovelTerceiro" ToRole="Imovel" />
           <NavigationProperty Name="tblStatus" Relationship="Self.FK__ImovelTer__IdSta__02084FDA" FromRole="ImovelTerceiro" ToRole="tblStatus" />
           <NavigationProperty Name="TipoImovelTerceiro" Relationship="Self.FK__ImovelTer__IdTip__2739D489" FromRole="ImovelTerceiro" ToRole="TipoImovelTerceiro" />
+          <Property Name="VlrImovel" Type="Double" />
         </EntityType>
         <EntityType Name="Lote">
           <Key>
@@ -1654,6 +1656,7 @@
           <EntitySetMapping Name="ImovelTerceiro">
             <EntityTypeMapping TypeName="SoftHomeDesenvModel.ImovelTerceiro">
               <MappingFragment StoreEntitySet="ImovelTerceiro">
+                <ScalarProperty Name="VlrImovel" ColumnName="VlrImovel" />
                 <ScalarProperty Name="IdImovelTerceiro" ColumnName="IdImovelTerceiro" />
                 <ScalarProperty Name="AreaTotal" ColumnName="AreaTotal" />
                 <ScalarProperty Name="AreaContru" ColumnName="AreaContru" />

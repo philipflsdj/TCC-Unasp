@@ -14,8 +14,6 @@ namespace Tcc_Unasp
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
-
-
             // Use a versão em desenvolvimento do Modernizr para desenvolver e aprender. Em seguida, quando estiver
             // pronto para a produção, utilize a ferramenta de build em https://modernizr.com para escolher somente os testes que precisa.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
@@ -33,7 +31,6 @@ namespace Tcc_Unasp
                         "~/Content/vendor/jquery/jquery.min.js",
                         "~/Content/vendor/bootstrap/js/bootstrap.bundle.min.js",
                         "~/Content/vendor/jquery-easing/jquery.easing.min.js",
-                        
                         "~/Content/vendor/chart.js/Chart.min.js",
                         "~/Scripts/js/demo/chart-area-demo.js",
                         "~/Scripts/js/demo/chart-pie-demo.js",

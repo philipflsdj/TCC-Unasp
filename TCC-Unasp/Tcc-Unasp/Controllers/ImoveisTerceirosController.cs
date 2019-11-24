@@ -51,7 +51,7 @@ namespace Tcc_Unasp.Controllers
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdImovelTerceiro,AreaTotal,AreaContru,Domitotios,Banheiros,Garagem,TotComodos,Comentarios,IdStatus,IdTipoImovelTerceiro,IdImovel,IdCliente")] ImovelTerceiro imovelTerceiro)
+        public ActionResult Create([Bind(Include = "IdImovelTerceiro,AreaTotal,AreaContru,Domitotios,Banheiros,Garagem,TotComodos,Comentarios,IdStatus,IdTipoImovelTerceiro,IdImovel,IdCliente,VlrImovel")] ImovelTerceiro imovelTerceiro)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace Tcc_Unasp.Controllers
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdImovelTerceiro,AreaTotal,AreaContru,Domitotios,Banheiros,Garagem,TotComodos,Comentarios,IdStatus,IdTipoImovelTerceiro,IdImovel,IdCliente")] ImovelTerceiro imovelTerceiro)
+        public ActionResult Edit([Bind(Include = "IdImovelTerceiro,AreaTotal,AreaContru,Domitotios,Banheiros,Garagem,TotComodos,Comentarios,IdStatus,IdTipoImovelTerceiro,IdImovel,IdCliente,VlrImovel")] ImovelTerceiro imovelTerceiro)
         {
             if (ModelState.IsValid)
             {

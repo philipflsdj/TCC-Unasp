@@ -32,5 +32,6 @@ namespace Tcc_Unasp.Models
         public virtual ICollection<Atendimento> Atendimento { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Reuniao> Reuniao { get; set; }
+        public string ReturnUrl { get; internal set; }
     }
 }

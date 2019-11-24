@@ -1,12 +1,13 @@
-﻿@*{
-    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
-}
-*@
+﻿@{
+    //{
+    //    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+    //}
 
 
-@{
+
+    string layout = "~/Views/Shared/_LoginLayout.cshtml";
     var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["Controller"].ToString();
-    string layout = "";
+
 
 
 
@@ -14,6 +15,13 @@
     {
         layout = "~/Views/Shared/_DashboardLayout.cshtml";
     }
+    else if (controller == "" || controller is null)
+    {
+
+        Layout = "~/Views/Shared/_Layout.cshtml";
+
+    }
+
     else if (controller == "Clientes")
     {
         layout = "~/Views/Shared/_DashboardLayout.cshtml";
@@ -83,10 +91,17 @@
     {
         layout = "~/Views/Shared/_InicialLayout.cshtml";
     }
-    else if (controller == "Login")
+    else if (controller == "Autentication")
     {
         layout = "~/Views/Shared/_LoginLayout.cshtml";
     }
-    Layout = layout;
 
+    else if (controller == "Manage")
+    {
+
+        Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+
+    }
+
+    Layout = layout;
 }
