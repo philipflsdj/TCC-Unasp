@@ -101,92 +101,97 @@
 
 </script>
 @if (ViewBag.Collor == null)
-{ 
-    <div class="form-horizontal">
-        @using (Html.BeginForm("Create", "Clientes", FormMethod.Post, new { id = "CreateCliente", enctype = "multipart/form-data" }))
-        {
-            @Html.AntiForgeryToken()
+{
+<div class="form-horizontal">
+    @using (Html.BeginForm("Create", "Clientes", FormMethod.Post, new { id = "CreateCliente", enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
 
 
 
-            <div class="form-group">
-                <label>Nome:</label>
-                <input type="text" class="form-control" name="NomeCliente" id="NomeCliente" placeholder="Digite o nome completo do cliente EX: SÉRGIO MENDES DE OLIVEIRA">
-                @Html.ValidationMessageFor(model => model.NomeCliente, "", new { @class = "text-danger" })
-            </div>
-            <div class="form-group">
-                <label>Nacionalidade:</label>
-                <input type="text" class="form-control" name="NacionalidadeCliente" id="NacionalidadeCliente" placeholder="Digite a nacionalidade no cliente EX: BRASILEIRA">
-                @Html.ValidationMessageFor(model => model.NacionalidadeCliente, "", new { @class = "text-danger" })
-            </div>
-            <div class="form-group">
-                <label>Estado Civil:</label>
-                <select class="form-control text-center" name="EstadoCivil" id="EstadoCivil">
-                    <!--SOLTEIRO, CASADO, DIVORCIADO, UNIÃO ESTÁVEL, VIVÚVO, SEPARADO JUDICIALMENTE-->
-                    <option value="Default">-----Selecione uma Opção-----</option>
-                    <option value="SOLTEIRO">Solteiro</option>
-                    <option value="CASADO">Casado</option>
-                    <option value="DIVORCIADO">Divorciado</option>
-                    <option value="UNIÃO ESTÁVEL">União Estável</option>
-                    <option value="VIVÚVO">Viúvo</option>
-                    <option value="SEPARADO JUDICIALMENTE">Separado Judicialmente</option>
-                </select>
-                @Html.ValidationMessageFor(model => model.EstadoCivil, "", new { @class = "text-danger" })
-            </div>
-            <div class="form-group">
-                <label>Profissão:</label>
-                <input type="text" class="form-control" name="ProfissaoCliente" id="ProfissaoCliente" placeholder="Digite a profissão do cliente EX: CORRETOR">
-                @Html.ValidationMessageFor(model => model.ProfissaoCliente, "", new { @class = "text-danger" })
-            </div>
-            <div class="form-group">
-                <label>RG:</label>
-                <input type="text" class="form-control" name="RGCliente" id="RGCliente" placeholder="Digite o RG do cliente">
-                @Html.ValidationMessageFor(model => model.RGCliente, "", new { @class = "text-danger" })
-            </div>
-            <div class="form-group">
-                <label>CPF:</label>
-                <input type="text" class="form-control" name="CPFCliente" id="cpf" placeholder="Digite o CPF do cliente">
-                @Html.ValidationMessageFor(model => model.CPFCliente, "", new { @class = "text-danger" })
-            </div>
-            <div class="form-group">
-                <label>Data de Nascimento:</label>
-                <input type="text" class="form-control" name="dataNascimento" id="dataNascimento" placeholder="Digite o CPF do cliente">
-                @Html.ValidationMessageFor(model => model.dataNascimento, "", new { @class = "text-danger" })
-            </div>
-            <div class="form-group">
-                <label>Cep:</label>
-                <input name="cep" type="text" id="cep" value="" class="form-control" placeholder="Digite o CEP do cliente">
-            </div>
-            <div class="form-group">
-                <label>Rua:</label>
-                <input name="rua" type="text" id="rua" class="form-control" placeholder="">
-            </div>
-            <div class="form-group">
-                <label>Bairro:</label>
-                <input name="bairro" type="text" id="bairro" class="form-control" placeholder="">
-            </div>
-            <div class="form-group">
-                <label>Cidade:</label>
-                <input name="cidade" type="text" id="cidade" class="form-control" placeholder="">
-            </div>
-            <div class="form-group">
-                <label>Estado:</label>
-                <input name="uf" type="text" id="uf" class="form-control" placeholder="">
-            </div>
-            <div class="form-group">
-                <label>Numero da casa:</label>
-                <input type="text" name="nCasa" id="nCasa" value="" class="form-control" placeholder="Digite o N° do cliente">
-                @Html.ValidationMessageFor(model => model.nCasa, "", new { @class = "text-danger" })
-            </div>
+        <div class="form-group">
+            <label>Nome:</label>
+            <input type="text" class="form-control" name="NomeCliente" id="NomeCliente" placeholder="Digite o nome completo do cliente">
+            @Html.ValidationMessageFor(model => model.NomeCliente, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label>Nacionalidade:</label>
+            <input type="text" class="form-control" name="NacionalidadeCliente" id="NacionalidadeCliente" placeholder="Digite a nacionalidade no cliente ">
+            @Html.ValidationMessageFor(model => model.NacionalidadeCliente, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label>Estado Civil:</label>
+            <select class="form-control text-center" name="EstadoCivil" id="EstadoCivil">
+                <!--SOLTEIRO, CASADO, DIVORCIADO, UNIÃO ESTÁVEL, VIVÚVO, SEPARADO JUDICIALMENTE-->
+                <option value="Default">-----Selecione uma Opção-----</option>
+                <option value="SOLTEIRO">Solteiro</option>
+                <option value="CASADO">Casado</option>
+                <option value="DIVORCIADO">Divorciado</option>
+                <option value="UNIÃO ESTÁVEL">União Estável</option>
+                <option value="VIVÚVO">Viúvo</option>
+                <option value="SEPARADO JUDICIALMENTE">Separado Judicialmente</option>
+            </select>
+            @Html.ValidationMessageFor(model => model.EstadoCivil, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label>Profissão:</label>
+            <input type="text" class="form-control" name="ProfissaoCliente" id="ProfissaoCliente" placeholder="Digite a profissão do cliente ">
+            @Html.ValidationMessageFor(model => model.ProfissaoCliente, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label>RG:</label>
+            <input type="text" class="form-control" name="RGCliente" id="RGCliente" placeholder="Digite o RG do cliente">
+            @Html.ValidationMessageFor(model => model.RGCliente, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label>CPF:</label>
+            <input type="text" class="form-control" name="CPFCliente" id="cpf" placeholder="Digite o CPF do cliente">
+            @Html.ValidationMessageFor(model => model.CPFCliente, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label>Data de Nascimento:</label>
+            <input type="text" class="form-control" name="dataNascimento" id="dataNascimento" placeholder="Digite o CPF do cliente">
+            @Html.ValidationMessageFor(model => model.dataNascimento, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label>Cep:</label>
+            <input name="cep" type="text" id="cep" value="" class="form-control" placeholder="Digite o CEP do cliente">
+        </div>
+        <div class="form-group">
+            <label>Rua:</label>
+            <input name="rua" type="text" id="rua" class="form-control" placeholder="">
+        </div>
+        <div class="form-group">
+            <label>Bairro:</label>
+            <input name="bairro" type="text" id="bairro" class="form-control" placeholder="">
+        </div>
+        <div class="form-group">
+            <label>Cidade:</label>
+            <input name="cidade" type="text" id="cidade" class="form-control" placeholder="">
+        </div>
+        <div class="form-group">
+            <label>Estado:</label>
+            <input name="uf" type="text" id="uf" class="form-control" placeholder="">
+        </div>
+        <div class="form-group">
+            <label>Numero da casa:</label>
+            <input type="text" name="nCasa" id="nCasa" value="" class="form-control" placeholder="Digite o N° do cliente">
+            @Html.ValidationMessageFor(model => model.nCasa, "", new { @class = "text-danger" })
+        </div>
 
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" id="btnCreate" class="btn btn-default" />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                    <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Salvar" id="btnCreate" class="btn btn-outline-success" />
+                    <a class="btn btn-outline-danger" href="@Url.Action("Index", "Clientes")">Voltar para a lista</a>
                 </div>
             </div>
-        }
-    </div>
+        </div>
+    }
+</div>
 }
+
+
 
 @if(ViewBag.Collor != null)
 {

@@ -73,20 +73,20 @@
 
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Salvar" class="btn btn-outline-success" />
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Salvar" id="btnCreate" class="btn btn-outline-success" />
+                                <a class="btn btn-outline-danger" href="@Url.Action("Index", "Contatos")">Voltar para a lista</a>
+                            </div>
                         </div>
                     </div>
+
+
+
                 </div>
+
             }
-
-            <div>
-                @Html.ActionLink("Back to List", "Index")
-            </div>
-
         </div>
     </div>
-</div>
-
 
 
 

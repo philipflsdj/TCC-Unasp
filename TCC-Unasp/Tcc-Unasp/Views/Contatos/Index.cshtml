@@ -7,7 +7,7 @@
 <div class="col-lg-12">
     <div class="card mb-4">
         <div class="card-header">
-            <h4 class="m-0 font-weight-bold text-primary">Lista de Clientes</h4>
+            <h4 class="m-0 font-weight-bold text-primary">Lista de Contatos</h4>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -50,9 +50,9 @@
                                     @Html.DisplayFor(modelItem => item.TelResidCliente)
                                 </td>                                
                                 <td>
-                                    <a class="btn btn-success" href="@Url.Action("Edit","Clientes", new {id = item.IdContato })"><i class="fas fa-pencil-alt" style="color:white"></i></a> |
-                                    <a class="btn btn-primary" href="@Url.Action("Details","Clientes", new { id = item.IdContato })"><i class="fas fa-list-alt" style="color:white"></i></a> |
-                                    <a class="btn btn-danger" href="@Url.Action("Delete","Clientes", new { id = item.IdContato })"><i class="fas fa-trash-alt" style="color:white"></i></a>
+                                    <a class="btn btn-primary" href="@Url.Action("Edit","Contatos", new {id = item.IdContato })"><i class="fas fa-pencil-alt" style="color:white"></i></a> |
+                                    <a class="btn btn-warning" href="@Url.Action("Details","Contatos", new { id = item.IdContato })"><i class="fas fa-list-alt" style="color:white"></i></a> |
+                                    <a class="btn btn-danger" href="@Url.Action("Delete","Contatos", new { id = item.IdContato })"><i class="fas fa-trash-alt" style="color:white"></i></a>
                                 </td>
                             </tr>
                         }
@@ -64,7 +64,7 @@
 </div>
 
 
-<p>
+@*<p>
     @Html.ActionLink("Create New", "Create")
-</p>
+</p>*@
 

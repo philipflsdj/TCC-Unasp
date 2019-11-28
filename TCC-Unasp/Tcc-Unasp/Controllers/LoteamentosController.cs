@@ -29,6 +29,13 @@ namespace Tcc_Unasp.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Loteamento loteamento = db.Loteamento.Find(id);
+            var ListaLotes = db.Lote.Include(l => l.Cliente).Include(l => l.Loteamento).Include(l => l.tblStatus).Where(l => l.IdLoteamento == id);
+
+            ViewBag.ListaLotes = ListaLotes;
+
+
+            ViewBag.ListaLotesNomeCliente = new SelectList(db.Cliente, "IdCliente", "NomeCliente");
+
             if (loteamento == null)
             {
                 return HttpNotFound();

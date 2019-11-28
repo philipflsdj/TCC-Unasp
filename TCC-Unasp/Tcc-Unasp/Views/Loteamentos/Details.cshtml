@@ -61,6 +61,64 @@
 
     </dl>
 </div>
+<div class="col-lg-12">
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4 class="m-0 font-weight-bold text-primary">Lista de Clientes</h4>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered " id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>N</th>
+                            <th>Quadra</th>
+                            <th>CPF</th>
+                            <th>Endereco</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Nome</th>
+                            <th>RG</th>
+                            <th>CPF</th>
+                            <th>Endereco</th>
+                            <th>Ações</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr>
+                            @foreach (var Lotes in ViewBag.ListaLotes)
+                            {
+
+                                <td>
+                                    @Lotes.NLote
+                                </td>
+                                <td>
+                                    @Lotes.Nquadra
+                                </td>
+                                <td>
+                                    @Lotes.Rua
+                                </td>
+                                <td>
+                                    @Lotes.Cliente.NomeCliente
+                                </td>
+                                <td>
+
+                                    <a class="btn btn-primary" href="@Url.Action("Edit","Lotes", new { id = Lotes.IdLote })"><i class="fas fa-pencil-alt" style="color:white"></i></a> |
+                                    <a class="btn btn-warning" href="@Url.Action("Details","Lotes", new { id = Lotes.IdLote})"><i class="fas fa-list-alt" style="color:white"></i></a> |
+                                    <a class="btn btn-danger" href="@Url.Action("Delete","Lotes", new { id = Lotes.IdLote })"><i class="fas fa-trash-alt" style="color:white"></i></a>
+                                </td>
+
+                            }
+                        </tr>    
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.IdLoteamento }) |
     @Html.ActionLink("Back to List", "Index")

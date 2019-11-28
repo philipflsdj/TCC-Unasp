@@ -5,7 +5,93 @@
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
-<h2>Index</h2>
+<div class="col-lg-12">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+
+            <div class="col-lg-3">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h4 class="m-0 font-weight-bold text-primary"> @Html.DisplayFor(modelItem => item.NomeLoteamento)</h4>
+                    </div>
+                    <div class="card-body">
+                        <p>N° Matrícula : @Html.DisplayFor(modelItem => item.nMatricula)</p>
+                        <p>N° Regularização: @Html.DisplayFor(modelItem => item.nProceRegu) </p>
+                        <p>N° Incra: @Html.DisplayFor(modelItem => item.nIncra)</p>
+                        
+
+                        <br />
+                        <a class="btn btn-primary" href="@Url.Action("Edit","Loteamentos", new { id = item.IdLoteamento })"><i class="fas fa-pencil-alt" style="color:white"></i></a> |
+                        <a class="btn btn-warning" href="@Url.Action("Details","Loteamentos", new { id = item.IdLoteamento })"><i class="fas fa-list-alt" style="color:white"></i></a> |
+                        <a class="btn btn-danger" href="@Url.Action("Delete","Loteamentos", new { id = item.IdLoteamento })"><i class="fas fa-trash-alt" style="color:white"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+        }
+    </div>
+</div>
+@*<h2>Index</h2>
+<div class="col-lg-12">
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4 class="m-0 font-weight-bold text-primary">Lista de Clientes</h4>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered " id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>N° Matrícula</th>
+                            <th>N° Regularização </th>
+                            <th>N° Incra</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Nome</th>
+                            <th>N° Matrícula</th>
+                            <th>N° Regularização </th>
+                            <th>N° Incra</th>
+                            <th>Ações</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NomeLoteamento)
+                                </td>
+
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.nMatricula)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.nProceRegu)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.nIncra)
+                                </td>
+                                <td>
+                                    <a class="btn btn-success" href="@Url.Action("Edit","Loteamentos", new {id = item.NomeLoteamento })"><i class="fas fa-pencil-alt" style="color:white"></i></a> |
+                                    <a class="btn btn-primary" href="@Url.Action("Details","Loteamentos", new { id = item.NomeLoteamento })"><i class="fas fa-list-alt" style="color:white"></i></a> |
+                                    <a class="btn btn-danger" href="@Url.Action("Delete","Loteamentos", new { id = item.NomeLoteamento })"><i class="fas fa-trash-alt" style="color:white"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -33,32 +119,33 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NomeLoteamento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nMatricula)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nProceRegu)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nIncra)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Imovel.StatusImovel)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.tblStatus.Tabela)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdLoteamento }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdLoteamento }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdLoteamento })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeLoteamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nMatricula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nProceRegu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nIncra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Imovel.StatusImovel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tblStatus.Tabela)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.IdLoteamento }) |
+                @Html.ActionLink("Details", "Details", new { id = item.IdLoteamento }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.IdLoteamento })
+            </td>
+        </tr>
+    }
 
-</table>
+</table>*@

@@ -68,39 +68,7 @@
     </div>
 </div>
 
-<div class="col-lg-12">
-    <div class="row">
-        @foreach (var item in Model)
-        {
 
-            <div class="col-lg-3">
-
-                <div class="card mb-4">
-                    <div class="card-header">
-                        <h4 class="m-0 font-weight-bold text-primary"> @Html.DisplayFor(modelItem => item.NomeCliente)</h4>
-                    </div>
-                    <div class="card-body">
-                        <p>Nome</p>
-                        <p></p>
-                        <p>RG:@Html.DisplayFor(modelItem => item.RGCliente)</p>
-
-                        <p>CPF</p>
-                        <p></p>
-                        <p>Endereco</p>
-                        <p></p>
-
-                        <br />
-                        <a class="btn btn-primary" href="@Url.Action("Edit","Clientes", new { id = item.IdCliente })"><i class="fas fa-pencil-alt" style="color:white"></i></a> |
-                        <a class="btn btn-warning" href="@Url.Action("Details","Clientes", new { id = item.IdCliente })"><i class="fas fa-list-alt" style="color:white"></i></a> |
-                        <a class="btn btn-danger" href="@Url.Action("Delete","Clientes", new { id = item.IdCliente })"><i class="fas fa-trash-alt" style="color:white"></i></a>
-                    </div>
-                </div>
-
-            </div>
-
-        }
-    </div>
-</div>
 
 @*<p>
         @Html.ActionLink("Create New", "Create")

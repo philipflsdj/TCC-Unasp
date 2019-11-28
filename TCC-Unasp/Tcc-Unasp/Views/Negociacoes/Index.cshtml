@@ -4,61 +4,118 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
+<div class="col-lg-12">
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4 class="m-0 font-weight-bold text-primary">Lista de Clientes</h4>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered " id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Nome Reunião</th>
+                            <th>Tipo de Negociação</th>
+                            <th>Qtd de Parcelas</th>
+                            <th>Valor total</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Nome Reunião</th>
+                            <th>Tipo de Negociação</th>
+                            <th>Qtd de Parcelas</th>
+                            <th>Valor total</th>
+                            <th>Ações</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Reuniao.NomeReuniao)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TipoNegociacao.Descricao)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.QteDeParc)
+                                </td>
 
-<h2>Index</h2>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ValorTot)
+                                </td>
+                                <td>
+
+                                    <a class="btn btn-primary" href="@Url.Action("Edit","Negociacoes", new { id = item.IdNegociacao })"><i class="fas fa-pencil-alt" style="color:white"></i></a> |
+                                    <a class="btn btn-warning" href="@Url.Action("Details","Negociacoes", new { id = item.IdNegociacao})"><i class="fas fa-list-alt" style="color:white"></i></a> |
+                                    <a class="btn btn-danger" href="@Url.Action("Delete","Negociacoes", new { id = item.IdNegociacao })"><i class="fas fa-trash-alt" style="color:white"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<h2>index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @html.actionlink("create new", "create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.QteDeParc)
+            @html.displaynamefor(model => model.qtedeparc)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ValorTot)
+            @html.displaynamefor(model => model.valortot)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Comentario)
+            @html.displaynamefor(model => model.comentario)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Reuniao.Comentario)
+            @html.displaynamefor(model => model.reuniao.comentario)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.tblStatus.Tabela)
+            @html.displaynamefor(model => model.tblstatus.tabela)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TipoNegociacao.Descricao)
+            @html.displaynamefor(model => model.tiponegociacao.descricao)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.QteDeParc)
+            @html.displayfor(modelitem => item.qtedeparc)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ValorTot)
+            @html.displayfor(modelitem => item.valortot)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Comentario)
+            @html.displayfor(modelitem => item.comentario)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Reuniao.Comentario)
+            @html.displayfor(modelitem => item.reuniao.comentario)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.tblStatus.Tabela)
+            @html.displayfor(modelitem => item.tblstatus.tabela)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.TipoNegociacao.Descricao)
+            @html.displayfor(modelitem => item.tiponegociacao.descricao)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdNegociacao }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdNegociacao }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdNegociacao })
+            @html.actionlink("edit", "edit", new { id=item.idnegociacao }) |
+            @html.actionlink("details", "details", new { id=item.idnegociacao }) |
+            @html.actionlink("delete", "delete", new { id=item.idnegociacao })
         </td>
     </tr>
 }
 
-</table>
+</table>*@
