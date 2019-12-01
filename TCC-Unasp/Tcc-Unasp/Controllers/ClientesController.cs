@@ -61,7 +61,9 @@ namespace Tcc_Unasp.Controllers
         public ActionResult Create(Cliente cliente, string cep)
         {
             var Endereco = db.tblLogradouros.Where(t => t.CEP == cep.Replace("-","")).FirstOrDefault<tblLogradouros>();
-            
+
+             
+            ViewBag.NomeReuniao = db.Reuniao;
             if (ModelState.IsValid)
             {
                 try

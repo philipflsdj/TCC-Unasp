@@ -16,55 +16,58 @@
             {
                 @Html.AntiForgeryToken()
 
-                <div class="form-horizontal">
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.NomeAtendimento, htmlAttributes: new { @class = "control-label " })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.NomeAtendimento, new { htmlAttributes = new { @class = "form-control" } })
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="inlineFormInputGroupUsername">Nome do Atendimento    :</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.NomeAtendimento, new { htmlAttributes = new { @class = "form-control" } })
 
-                            @Html.ValidationMessageFor(model => model.NomeAtendimento, "", new { @class = "text-danger" })
-                        </div>
+                        @Html.ValidationMessageFor(model => model.NomeAtendimento, "", new { @class = "text-danger" })
                     </div>
+                </div>
+            </div>
 
                     <div class="form-horizontal">
                         <div class="form-group">
-                            <div class="row">
-                                <label class="control-label col-md-2" for="inlineFormInputGroupUsername">Selecione o Cliente:</label>
-                                <select class="js-example-basic-multiple form-control col-md-6" name="NomeCliente">
-                                    <option value="Default">-----Selecione uma Opção-----</option>
-                                    @foreach (var Cliente in ViewBag.ListaClientes)
-                                    {
-                                        <option value="@Cliente.NomeCliente">@Cliente.NomeCliente</option>
-                                    }
-                                </select>
-                                <br />
-                                &nbsp;&nbsp;&nbsp;&nbsp;
-                                <!-- Botão para acionar modal -->
-                                <button type="button" class="btn btn-primary col-md-2" data-toggle="modal" data-target="#ModalLongoExemplo">
-                                    <i class="fas fa-user-plus"></i>
-                                    <span>Novo Cliente</span>
-                                </button>
+                            <div class="col-md-10">
+                                <div class="row">
+                                    <label class="control-label col-md-2" for="inlineFormInputGroupUsername">Selecione o Cliente:</label>
+                                    <select class="js-example-basic-multiple form-control col-md-6" name="IdCliente">
+                                        <option value="Default">-----Selecione uma Opção-----</option>
+                                        @foreach (var Cliente in ViewBag.ListaClientes)
+                                        {
+                                            <option value="@Cliente.IdCliente">@Cliente.NomeCliente</option>
+                                        }
+                                    </select>
+                                    <br />
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <!-- Botão para acionar modal -->
+                                    @*<button type="button" class="btn btn-primary col-md-2" data-toggle="modal" data-target="#ModalLongoExemplo">
+                <i class="fas fa-user-plus"></i>
+                <span>Novo Cliente</span>
+            </button>*@
+                                </div>
                             </div>
-                            
+                        </div>
+                            @*<div class="form-group">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.LabelFor(model => model.IdCliente, "Selecione o Cliente:", htmlAttributes: new { @class = "control-label" })
+        </div>*@
 
                         </div>
-                        @*<div class="form-group">
-                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                @Html.LabelFor(model => model.IdCliente, "Selecione o Cliente:", htmlAttributes: new { @class = "control-label" })
-                            </div>*@
-
-                    </div>
                     
-                </div>
+                
 
 
 
                 <div class="form-group">
                     <div class="form-group mb-2">
                         @Html.LabelFor(model => model.IdAtendente, "  Selecione o Atendente:", htmlAttributes: new { @class = "control-label col-md-2" })
-                        @Html.DropDownList("IdAtendente", null, htmlAttributes: new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.IdAtendente, "", new { @class = "text-danger" })
-                    </div>
+                            <div class="col-md-10">
+                                @Html.DropDownList("IdAtendente", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.IdAtendente, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
 
                 </div>
 
@@ -113,7 +116,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            @{Html.RenderPartial("_CreateCliente", Model.Cliente);}
+                            @*@{Html.RenderPartial("_CreateCliente", Model.Cliente);}*@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>

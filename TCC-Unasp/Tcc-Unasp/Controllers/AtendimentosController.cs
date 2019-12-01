@@ -47,6 +47,7 @@ namespace Tcc_Unasp.Controllers
         {
             var listclientes = db.Cliente;
             ViewBag.ListaClientes = listclientes.ToList();
+            ViewBag.NomeReuniao = db.Reuniao.ToList();
             ViewBag.IdCliente = new SelectList(db.Cliente, "IdCliente", "NomeCliente");
             ViewBag.IdReuniao = new SelectList(db.Reuniao, "IdReuniao", "Comentario");
             ViewBag.IdAtendente = new SelectList(db.Usuario, "IdUsuario", "NomeUsuario");
@@ -63,7 +64,9 @@ namespace Tcc_Unasp.Controllers
         public ActionResult Create([Bind(Include = "IdAtendimento,IdCliente,IdAtendente,NomeAtendimento,Comentario,DataAtendimento,IdReuniao")] Atendimento atendimento)
         {
             var listclientes = db.Cliente;
+            var listreunioes = db.Reuniao;
             ViewBag.ListaClientes = listclientes.ToList();
+            ViewBag.NomeReuniao = listreunioes.ToList();
             if (ModelState.IsValid)
             {
                 db.Atendimento.Add(atendimento);
